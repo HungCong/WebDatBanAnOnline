@@ -1,0 +1,10 @@
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\Order_RestaurantWCF\bin\Debug\Order_RestaurantWCF.dll.config
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\Order_RestaurantWCF\bin\Debug\Order_RestaurantWCF.dll
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\Order_RestaurantWCF\bin\Debug\Order_RestaurantWCF.pdb
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\Order_RestaurantWCF\bin\Debug\EntityFramework.dll
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\Order_RestaurantWCF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\Order_RestaurantWCF\bin\Debug\EntityFramework.xml
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\Order_RestaurantWCF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\Order_RestaurantWCF\obj\Debug\Order_RestaurantWCF.csprojResolveAssemblyReference.cache
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\Order_RestaurantWCF\obj\Debug\Order_RestaurantWCF.dll
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\Order_RestaurantWCF\obj\Debug\Order_RestaurantWCF.pdb

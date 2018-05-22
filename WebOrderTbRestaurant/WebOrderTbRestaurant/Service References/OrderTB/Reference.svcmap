@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f867807f-4366-4589-b43f-70f0f1118cad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/Order_RestaurantWCF.Service/OrderSV/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="61e1a408-83ec-4b34-b7c4-b4c15f3ddc62" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Order_RestaurantWCF.Service/OrderSV/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="a57fb1d1-923c-427f-9119-377ca58feb1a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Order_RestaurantWCF.Service/OrderSV/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="322d1254-9626-42a3-a43e-a33f08fc5e03" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Order_RestaurantWCF.Service/OrderSV/mex" />
+    <MetadataFile FileName="Order_RestaurantWCF.Model.xsd" MetadataType="Schema" ID="865c3a72-e87c-4413-9ac4-8f310d949479" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/Order_RestaurantWCF.Service/OrderSV/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

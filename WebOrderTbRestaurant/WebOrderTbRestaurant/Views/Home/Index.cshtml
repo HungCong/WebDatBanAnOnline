@@ -1,0 +1,645 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var food_content = (WebOrderTbRestaurant.Food.Food[])ViewBag.Food_content;
+    var food_slide = (WebOrderTbRestaurant.Food.Banner[])ViewBag.Food_Slide;
+}
+
+@section jsFooter{
+    <script src="~/Assets/Client/js/date-picker/date.format.js"></script>
+    <script type="text/javascript">
+        $("#date-now").datepicker({
+            closeText: 'Đóng',
+            prevText: '&#x3c;Trước',
+            nextText: 'Tiếp&#x3e;',
+            currentText: 'Hôm nay',
+            monthNames: ['Tháng Một', 'Tháng Hai', 'Tháng Ba', 'Tháng Tư', 'Tháng Năm', 'Tháng Sáu',
+                'Tháng Bảy', 'Tháng Tám', 'Tháng Chín', 'Tháng Mười', 'Th.Mười Một', 'Th.Mười Hai'],
+            monthNamesShort: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
+                'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+            dayNames: ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'],
+            dayNamesShort: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+            dayNamesMin: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+            weekHeader: 'Tu',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 0,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        });
+        $("#date-now").datepicker('setDate', new Date());
+    </script>
+    <script type="text/javascript">
+        function validateCount() {
+            var str = document.getElementById("Count").value;
+            var reg = new RegExp('^[0-9]+$');
+
+            if (!reg.test(str)) {
+                alert("Vui lòng nhập đúng số lượng!!");
+                document.getElementById("Count").value;
+            }
+        }
+
+    </script>
+   
+}
+
+<div class="Book">
+    <form method="post" action="dat-ban" accept-charset="utf-8" name="dat-ban">
+        <div class="col-sm-3 col-lg-3 item">
+            <input type="text" id="date-now" name="BookDate" class="form-control datepicker active" readonly="readonly" />
+        </div>
+
+        <div class="col-sm-3 col-lg-3 item">
+            <select type="text" class="form-control AtTime" name="Time" readonly="readonly" style="background-color: #f5f5f8;">
+                <option value="00">00:00 AM</option>
+                <option value="0:30">0:30 AM</option>
+                <option value="1:00">1:00 AM</option>
+                <option value="1:30">1:30 AM</option>
+                <option value="2:00">2:00 AM</option>
+                <option value="2:30">2:30 AM</option>
+                <option value="3:00">3:00 AM</option>
+                <option value="3:30">3:30 AM</option>
+                <option value="4:00">4:00 AM</option>
+                <option value="4:30">4:30 AM</option>
+                <option value="5:00">5:00 AM</option>
+                <option value="5:30">5:30 AM</option>
+                <option value="6:00">6:00 AM</option>
+                <option value="6:30">6:30 AM</option>
+                <option value="7:00">7:00 AM</option>
+                <option value="7:30">7:30 AM</option>
+                <option value="8:00">8:00 AM</option>
+                <option value="8:30 ">8:30 AM</option>
+                <option value="9:00">9:00 AM</option>
+                <option value="9:30">9:30 AM</option>
+                <option value="10:30">10:30 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="11:30">11:30 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="12:30">12:30 PM</option>
+                <option value="13:00">13:00 PM</option>
+                <option value="13:30">13:30 PM</option>
+                <option value="14:00">14:00 PM</option>
+                <option value="14:30">14:30 PM</option>
+                <option value="15:00">15:00 PM</option>
+                <option value="15:30">15:30 PM</option>
+                <option value="16:00">16:00 PM</option>
+                <option value="16:30">16:30 PM</option>
+                <option value="17:00">17:00 PM</option>
+                <option value="17:30">17:30 PM</option>
+                <option value="18:00">18:00 PM</option>
+                <option value="19:00">19:00 PM</option>
+                <option value="19:30">19:30 PM</option>
+                <option value="20:00">20:00 PM</option>
+                <option value="20:30">20:30 PM</option>
+                <option value="21:00">21:00 PM</option>
+                <option value="21:30">21:30 PM</option>
+                <option value="22:00">22:00 PM</option>
+                <option value="23:00">23:00 PM</option>
+                <option value="23:30">23:30 PM</option>
+            </select>
+        </div>
+
+        <div class="col-sm-3 col-lg-3 item">
+            <input type="number" id="Count" value="6"  class="form-control quantity" onmouseout="validateCount()" placeholder="Số lượng người" style="background-color: #f5f5f8;" />
+        </div>
+
+        <div class="col-sm-3 col-lg-3 item">
+            <a  class="btn btn-warning btn-Order" style="width:150px">Đặt Bàn</a>
+        </div>
+    </form>
+</div>
+
+<!--Slide-->
+<section class="welcome-post-sliders owl-carousel">
+    @foreach (var item in food_slide)
+    {
+        item.MetaTitle = item.MetaTitle.Replace(" ", "");
+        var url = "/thuc-don/" + item.MetaTitle + "-" + item.ID;
+
+          <!-- Single Slide -->
+        <div class="welcome-single-slide">
+            <!-- Post Thumb -->
+            <a href="@url">
+                <img src="@item.Image" style="height:500px;
+                                                         width:333px;">
+            </a>
+            <!-- Overlay Text -->
+            <div class="project_title">
+                <div class="post-date-commnents d-flex">
+                    <a href="@url">@item.CreatedDate.Value.ToString("dd/MM/yyyy")</a>
+                    <div class="button-hd">
+                        <a href=""><i class="fa fa-shopping-cart" aria-hidden="true" title="Thêm vào bàn của bạn"></i></a>
+                    </div>
+                </div>
+                <a href="@url">
+                    <h5>@item.Name</h5>
+                </a>
+            </div>
+        </div>
+    }
+
+</section><!--Thức ăn dưới Thanh menu chính-->
+<!--Thức ăn dưới slide-->
+<section class="archive-area section_padding_80">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in food_content)
+            {
+                item.MetaTitle = item.MetaTitle.Replace(" ", "");
+                var url = "/thuc-don/" + item.MetaTitle + "-" + item.ID;
+                <!-- Single Post -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
+                        <!-- Post Thumb -->
+                        <div class="post-thumb">
+                            <a href="@url"><img src="@item.Image" alt="" style="height:300px; width:450px;"></a>
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <div class="post-meta d-flex">
+                                <div class="post-author-date-area d-flex">
+                                    <!-- Post Author -->
+                                    <div class="post-author">
+                                        <a href="#">By Marian</a>
+                                    </div>
+                                    <!-- Post Date -->
+                                    <div class="post-date">
+                                        <a href="#">@item.CreatedDate.Value.ToString("dd/MM/yyyy")  </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="@url">
+                                <h4 class="post-headline">@item.Name</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+            <div class="col-12">
+                <div class="pagination-area d-sm-flex mt-15">
+                    <nav aria-label="#">
+                        <ul class="pagination">
+                            <li class="page-item active">
+                                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="page-status">
+                        <p>Page 1 of 60 results</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ****** Welcome Area End ****** -->
+<!-- ****** Categories Area Start ****** -->
+<section class="categories_area clearfix" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
+                    <img src="~/Assets/Client/img/food/Tiec-bao-hypng.png" alt="">
+                    <div class="catagory-title">
+                        <a href="#">
+                            <h5>Tiệc báo hỷ</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
+                    <img src="~/Assets/Client/img/food/Tiec hoi nghi.png" alt="">
+                    <div class="catagory-title">
+                        <a href="#">
+                            <h5>Tiệc hội nghị</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
+                    <img src="~/Assets/Client/img/food/tiec sinh nhat.png" alt="">
+                    <div class="catagory-title">
+                        <a href="#">
+                            <h5>Tiệc sinh nhật</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ****** Categories Area End ****** -->
+<!-- ****** Blog Area Start ****** -->
+<section class="blog_area section_padding_0_80">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="row">
+
+                    <!-- Single Post -->
+                    <div class="col-12">
+                        <div class="single-post wow fadeInUp" data-wow-delay=".2s">
+                            <!-- Post Thumb -->
+                            <div class="post-thumb">
+                                <img src="~/Assets/Client/img/food/YON_7851.jpg" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <div class="post-meta d-flex">
+                                    <div class="post-author-date-area d-flex">
+                                        <!-- Post Author -->
+                                        @*<div class="post-author">
+                                                <a href="#">By Marian</a>
+                                            </div>*@
+                                        <!-- Post Date -->
+                                        <div class="post-date">
+                                            <a href="#">May 19, 2017</a>
+                                        </div>
+                                    </div>
+                                    <!-- Post Comment & Share Area -->
+                                    <div class="post-comment-share-area d-flex">
+                                        <!-- Post Favourite -->
+                                        <div class="post-favourite">
+                                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                        </div>
+                                        <!-- Post Comments -->
+                                        <div class="post-comments">
+                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        </div>
+                                        <!-- Post Share -->
+                                        <div class="post-share">
+                                            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <h2 class="post-headline"> Vịt trời hấp ngon ngọt cho bữa cơm ngày hè!</h2>
+                                </a>
+                                <p>Không giống với những loài vịt nhà thông thường, thịt vịt trời không hôi, mềm, ngọt và rất thơm. Chính vì lý do này mà thịt vịt trời rất quý, thường xuyên được...</p>
+                                <a href="#" class="read-more">Đọc tiếp...</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Post -->
+                    <div class="col-12 col-md-6">
+                        <div class="single-post wow fadeInUp" data-wow-delay=".4s">
+                            <!-- Post Thumb -->
+                            <div class="post-thumb">
+                                <img src="~/Assets/Client/img/food/YON_8194-min.jpg" style="height:250px; width: 377px" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <div class="post-meta d-flex">
+                                    <div class="post-author-date-area d-flex">
+                                        <!-- Post Author -->
+                                        @*<div class="post-author">
+                                                <a href="#">By Marian</a>
+                                            </div>*@
+                                        <!-- Post Date -->
+                                        <div class="post-date">
+                                            <a href="#">May 19, 2017</a>
+                                        </div>
+                                    </div>
+                                    <!-- Post Comment & Share Area -->
+                                    <div class="post-comment-share-area d-flex">
+                                        <!-- Post Favourite -->
+                                        <div class="post-favourite">
+                                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                        </div>
+                                        <!-- Post Comments -->
+                                        <div class="post-comments">
+                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        </div>
+                                        <!-- Post Share -->
+                                        <div class="post-share">
+                                            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <h4 class="post-headline">Cách làm ba ba om chuối đậu ngon chuẩn vị nhà hàng</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Post -->
+                    <div class="col-12 col-md-6">
+                        <div class="single-post wow fadeInUp" data-wow-delay=".6s">
+                            <!-- Post Thumb -->
+                            <div class="post-thumb">
+                                <img src="~/Assets/Client/img/food/DSC_0455-min.jpg" style="height:250px; width: 377px" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <div class="post-meta d-flex">
+                                    <div class="post-author-date-area d-flex">
+                                        <!-- Post Author -->
+                                        @*<div class="post-author">
+                                                <a href="#">By Marian</a>
+                                            </div>*@
+                                        <!-- Post Date -->
+                                        <div class="post-date">
+                                            <a href="#">May 19, 2017</a>
+                                        </div>
+                                    </div>
+                                    <!-- Post Comment & Share Area -->
+                                    <div class="post-comment-share-area d-flex">
+                                        <!-- Post Favourite -->
+                                        <div class="post-favourite">
+                                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                        </div>
+                                        <!-- Post Comments -->
+                                        <div class="post-comments">
+                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        </div>
+                                        <!-- Post Share -->
+                                        <div class="post-share">
+                                            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <h4 class="post-headline">Gà Đông Tảo - Thực phẩm tiến vua nức danh xứ Kinh Kỳ</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Post -->
+                    <div class="col-12 col-md-6">
+                        <div class="single-post wow fadeInUp" data-wow-delay=".8s">
+                            <!-- Post Thumb -->
+                            <div class="post-thumb">
+                                <img src="~/Assets/Client/img/food/Cá chình.jpg" style="height:250px; width: 377px" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <div class="post-meta d-flex">
+                                    <div class="post-author-date-area d-flex">
+                                        <!-- Post Author -->
+                                        @*<div class="post-author">
+                                                <a href="#">By Marian</a>
+                                            </div>*@
+                                        <!-- Post Date -->
+                                        <div class="post-date">
+                                            <a href="#">May 19, 2017</a>
+                                        </div>
+                                    </div>
+                                    <!-- Post Comment & Share Area -->
+                                    <div class="post-comment-share-area d-flex">
+                                        <!-- Post Favourite -->
+                                        <div class="post-favourite">
+                                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                        </div>
+                                        <!-- Post Comments -->
+                                        <div class="post-comments">
+                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        </div>
+                                        <!-- Post Share -->
+                                        <div class="post-share">
+                                            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <h4 class="post-headline">Cá Chình nướng riềng mẻ đậm đà cho bữa cơm ngày mưa</h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Post -->
+                    <div class="col-12 col-md-6">
+                        <div class="single-post wow fadeInUp" data-wow-delay="1s">
+                            <!-- Post Thumb -->
+                            <div class="post-thumb">
+                                <img src="~/Assets/Client/img/food/Nộm Bắp bò cần tây.jpg" style="height:250px; width: 377px" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <div class="post-meta d-flex">
+                                    <div class="post-author-date-area d-flex">
+                                        <!-- Post Author -->
+                                        @*<@*div class="post-author">
+                                                <a href="#">By Marian</a>
+                                            </div>*@
+                                        <!-- Post Date -->
+                                        <div class="post-date">
+                                            <a href="#">May 19, 2017</a>
+                                        </div>
+                                    </div>
+                                    <!-- Post Comment & Share Area -->
+                                    <div class="post-comment-share-area d-flex">
+                                        <!-- Post Favourite -->
+                                        <div class="post-favourite">
+                                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                        </div>
+                                        <!-- Post Comments -->
+                                        <div class="post-comments">
+                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        </div>
+                                        <!-- Post Share -->
+                                        <div class="post-share">
+                                            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <h4 class="post-headline">Nộm bắp bò cần tây-món ăn giải nhiệt cho mọi gia đình </h4>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ******* List Blog Area Start ******* -->
+                    <!-- Single Post -->
+                    <div class="col-12">
+                        <div class="list-blog single-post d-sm-flex wow fadeInUpBig" data-wow-delay=".2s">
+                            <!-- Post Thumb -->
+                            <div class="post-thumb">
+                                <img src="~/Assets/Client/img/food/DSCF2305.JPG" alt="">
+                            </div>
+                            <!-- Post Content -->
+                            <div class="post-content">
+                                <div class="post-meta d-flex">
+                                    <div class="post-author-date-area d-flex">
+                                        <!-- Post Author -->
+                                        @*<div class="post-author">
+                                                <a href="#">By Marian</a>
+                                            </div>*@
+                                        <!-- Post Date -->
+                                        <div class="post-date">
+                                            <a href="#">May 19, 2017</a>
+                                        </div>
+                                    </div>
+                                    <!-- Post Comment & Share Area -->
+                                    <div class="post-comment-share-area d-flex">
+                                        <!-- Post Favourite -->
+                                        <div class="post-favourite">
+                                            <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> 10</a>
+                                        </div>
+                                        <!-- Post Comments -->
+                                        <div class="post-comments">
+                                            <a href="#"><i class="fa fa-comment-o" aria-hidden="true"></i> 12</a>
+                                        </div>
+                                        <!-- Post Share -->
+                                        <div class="post-share">
+                                            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#">
+                                    <h4 class="post-headline">Cá chép om dưa - Món ăn ngon bổ cho bữa cơm gia đình bạn</h4>
+                                </a>
+                                <p>Khi đưa ra thực đơn cho bữa cơm gia đình, các bà nội trợ chắc hẳn sẽ cân nhắc đến hương vị của món ăn. </p>
+                                <a href="#" class="read-more">Đọc tiếp...</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- ****** Blog Sidebar ****** -->
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                <div class="blog-sidebar mt-5 mt-lg-0">
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area about-me-widget text-center">
+                        <div class="widget-title">
+                            <h6>Về chúng tôi</h6>
+                        </div>
+                        <div class="about-me-widget-thumb">
+                            <img src="~/Assets/Client/img/food/party.jpeg" alt="">
+                        </div>
+                        <h4 class="font-shadow-into-light">Nhà hàng bể bơi</h4>
+                        <p>Tọa lạc tại vị trí ngoại ô trung tâm Hà Nội, nơi bạn có thể vừa thư giãn vừa thưởng thức nhưng món ăn ngon, đạm đà truyền thống bản sắc dân tộc </p>
+                    </div>
+
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area subscribe_widget text-center">
+                        <div class="widget-title">
+                            <h6>Subscribe &amp; Follow</h6>
+                        </div>
+                        <div class="subscribe-link">
+                            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-google" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                            <a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+
+                    <!--Navigation right page-->
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area popular-post-widget">
+                        <div class="widget-title text-center">
+                            <h6>Tin tức đọc nhiều</h6>
+                        </div>
+                        <!-- Single Popular Post -->
+                        <div class="single-populer-post d-flex">
+                            <img src="~/Assets/Client/img/food/Ca chinh.jpg" alt="">
+                            <div class="post-content">
+                                <a href="#">
+                                    <h6>Cá Chình nướng riềng mẻ đậm đà cho bữa cơm ngày mưa</h6>
+                                </a>
+                                <p>Tuesday, October 3, 2017</p>
+                            </div>
+                        </div>
+                        <!-- Single Popular Post -->
+                        <div class="single-populer-post d-flex">
+                            <img src="~/Assets/Client/img/food/Ca chinh.jpg" alt="">
+                            <div class="post-content">
+                                <a href="#">
+                                    <h6>Cá Chình nướng riềng mẻ đậm đà cho bữa cơm ngày mưa</h6>
+                                </a>
+                                <p>Tuesday, October 3, 2017</p>
+                            </div>
+                        </div>
+                        <!-- Single Popular Post -->
+                        <div class="single-populer-post d-flex">
+                            <img src="~/Assets/Client/img/food/Ca chinh.jpg" alt="">
+                            <div class="post-content">
+                                <a href="#">
+                                    <h6>Cá Chình nướng riềng mẻ đậm đà cho bữa cơm ngày mưa</h6>
+                                </a>
+                                <p>Tuesday, October 3, 2017</p>
+                            </div>
+                        </div>
+                        <!-- Single Popular Post -->
+                        <div class="single-populer-post d-flex">
+                            <img src="~/Assets/Client/img/food/Ca chinh.jpg" alt="">
+                            <div class="post-content">
+                                <a href="#">
+                                    <h6>Cá Chình nướng riềng mẻ đậm đà cho bữa cơm ngày mưa</h6>
+                                </a>
+                                <p>Tuesday, October 3, 2017</p>
+                            </div>
+                        </div>
+                        <!-- Single Popular Post -->
+                        <div class="single-populer-post d-flex">
+                            <img src="~/Assets/Client/img/food/Ca chinh.jpg" alt="">
+                            <div class="post-content">
+                                <a href="#">
+                                    <h6>Cá Chình nướng riềng mẻ đậm đà cho bữa cơm ngày mưa</h6>
+                                </a>
+                                <p>Tuesday, October 3, 2017</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area add-widget text-center">
+                        <div class="add-widget-area">
+                            <img src="~/Assets/Client/img/food/master.jpg" alt="">
+                            <div class="add-text">
+                                <div class="yummy-table">
+                                    <div class="yummy-table-cell">
+                                        <h2>Học nấu ăn cùng bếp trưởng nhà hàng</h2>
+                                        <p>Tham gia ngay</p>
+                                        <a href="#" class="add-btn">Đăng ký</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Widget Area -->
+                    <div class="single-widget-area newsletter-widget">
+                        <div class="widget-title text-center">
+                            <h6>Bạn muốn xem tin tức mới ??</h6>
+                        </div>
+                        <p>Đăng ký email bên dưới để nhận những tin tức bổ ích về ẩm thực vùng miền trên khắp đất nước Việt Nam. Ngoài ra bạn có thể là người đầu tiên nhận những vocher khuyến mãi của nhà hàng. Đăng ký ngay nào !!!</p>
+                        <div class="newsletter-form">
+                            <form action="#" method="post">
+                                <input type="email" name="newsletter-email" id="email" placeholder="Nhập email của bạn">
+                                <button type="submit"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -1,0 +1,136 @@
+﻿
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var food = (WebOrderTbRestaurant.Food.Food)ViewBag.foodDetail;
+}
+
+<!-- ****** order ****** -->
+<div class="banner">
+    <div class="container">
+        <div class="row">
+            <p>Thực đơn</p>
+        </div>
+    </div>
+</div>
+
+<div class="bre-crum">
+    <div class="container">
+        <div class="row">
+            <p><a href="#" title=""><i class="fa fa-home"></i>Trang chủ</a> &gt;&gt; Thực đơn</p>
+        </div>
+    </div>
+</div>
+
+
+<!--Detail Food-->
+<div class="content detail-news">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 detail-product">
+                <div class="col-sm-6 col-md-6 col-lg-6 detail-left" style="float:left">
+                    <div class="bx-wrapper" style="max-width: 100%">
+                        <div class="bx-viewport" style="width: 100%; overflow:hidden; position:relative; height:288px;">
+                            <ul class="bxslider" style="width: 315%; position: relative; transition-duration: 0s; transform: translate3d(-384px, 0px, 0px);">
+                                <li class="" style="float: left; list-style: none; position: relative; width: 384px;">
+                                    <span class="zoom1">
+                                        <img src="@food.Image" alt="">
+                                    </span>
+                                </li>
+                                <li class="bx-clone" style="float: left; list-style: none; position: relative; width: 384px;"><span class="zoom1"><img src="@food.Image" alt=""></span></li>
+                            </ul>
+                        </div>
+
+                        <div class="price-order">
+                            <span class="pull-left price">@food.Price.Value.ToString("N0") ₫</span>
+                            <span class="pull-right dat-mon"><a href="" title=""><i class="fa fa-shopping-cart"></i>&nbsp;Đặt món</a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 detail-right" style="float:left">
+                    <p class="name-products">@food.Name</p>
+                    <div class="des-product">
+                        <p>@food.Description</p>
+
+                    </div>
+                    @*<div class="thanhphan">
+                        <h2>Thành phần</h2>
+                    </div>
+                    <div class="nguyenlieu">
+                        <p>@Html.Raw(food.Ingredient)</p>
+
+                    </div>*@
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+                <p class="titile-right">Tin tức</p>
+                <div class="list-box-right">
+
+                    <div class="media">
+                        <a class="pull-left tintuc_img" href="">
+                            <img class="media-object" src="/Assets/Client/img/food/Baba.jpg" alt="Image">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading" style="line-height: 1rem"><a href="" title="">Cách làm ba ba om chuối đậu ngon chuẩn vị nhà hàng</a></h4>
+                            <div>
+                                <p class="pull-left"><i class="fa fa-calendar-o" aria-hidden="true"></i> &nbsp; 2017-07-19</p>
+                                <p class="pull-right"><a href="" title=""><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <a class="pull-left tintuc_img" href="">
+                            <img class="media-object" src="/Assets/Client/img/food/Baba.jpg" alt="Image">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading" style="line-height: 1rem"><a href="" title="">Cách làm ba ba om chuối đậu ngon chuẩn vị nhà hàng</a></h4>
+                            <div>
+                                <p class="pull-left"><i class="fa fa-calendar-o" aria-hidden="true"></i> &nbsp; 2017-07-19</p>
+                                <p class="pull-right"><a href="" title=""><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="categories_area clearfix" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
+                    <img src="/Assets/Client/img/food/Tiec-bao-hypng.png" alt="">
+                    <div class="catagory-title">
+                        <a href="#">
+                            <h5> Tiệc báo hỷ</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
+                    <img src="/Assets/Client/img/food/Tiec hoi nghi.png" alt="">
+                    <div class="catagory-title">
+                        <a href="#">
+                            <h5> Tiệc hội nghị</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
+                    <img src="/Assets/Client/img/food/tiec sinh nhat.png" alt="">
+                    <div class="catagory-title">
+                        <a href="#">
+                            <h5> Tiệc sinh nhật</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
