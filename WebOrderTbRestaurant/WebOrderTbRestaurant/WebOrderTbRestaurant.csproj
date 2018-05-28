@@ -204,6 +204,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BookCustomer.cs" />
+    <Compile Include="Models\OrderFood.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\Food\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -225,6 +226,7 @@
   <ItemGroup>
     <Content Include="Assets\Client\css\bootstrap\bootstrap.min.css" />
     <Content Include="Assets\Client\css\Button.css" />
+    <Content Include="Assets\Client\css\Menu.css" />
     <Content Include="Assets\Client\css\css\bootstrap\bootstrap.min.css" />
     <Content Include="Assets\Client\css\css\date-picker\datepicker.css" />
     <Content Include="Assets\Client\css\css\others\animate.css" />
@@ -330,6 +332,7 @@
     <Content Include="Assets\Client\js\date-picker\date.format.js" />
     <Content Include="Assets\Client\js\google-map\map-active.js" />
     <Content Include="Assets\Client\js\jquery\jquery-2.2.4.min.js" />
+    <Content Include="Assets\Client\js\Menu.js" />
     <Content Include="Assets\Client\js\Order.js" />
     <Content Include="Assets\Client\js\others\plugins.js" />
     <Content Include="favicon.ico" />
@@ -437,6 +440,7 @@
     <None Include="Service References\OrderTB\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

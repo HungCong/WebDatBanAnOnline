@@ -17,6 +17,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="icon" href="/Assets/Client/img/core-img/favicon.ico">
@@ -24,13 +26,15 @@
     <!-- Core Stylesheet -->
     <link href="/Assets/Client/css/style.css" rel="stylesheet">
     <link href="~/Assets/Client/css/Button.css" rel="stylesheet" />
+    <link href="~/Assets/Client/css/Menu.css" rel="stylesheet" />
+
 
     <!-- Responsive CSS -->
     <link href="/Assets/Client/css/responsive/responsive.css" rel="stylesheet">
 
     <!--Bootstrap-->
 
-    <link href="~/Assets/Client/css/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Assets/Client/css/css/bootstrap/bootstrap.min.css" rel="stylesheet" /> 
     <link href="~/Assets/Client/css/css/date-picker/datepicker.css" rel="stylesheet" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
@@ -58,27 +62,34 @@
                 </div>
                 <!--  Login Register Area -->
                 <div class="col-7 col-sm-6">
-                    <div class="signup-search-area d-flex align-items-center justify-content-end">
-                        <div class="login_register_area d-flex">
-                            <div class="login">
-                                <a href="register.html">Sing in</a>
-                            </div>
-                            <div class="register">
-                                <a href="register.html">Sing up</a>
-                            </div>
-                        </div>
-                        <!-- Search Button Area -->
-                        <div class="search_button">
-                            <a class="searchBtn" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                        </div>
-                        <!-- Search Form -->
-                        <div class="search-hidden-form">
+                    <div class="signup-search-area d-flex align-items-center justify-content-end">                        
+                    
+                         @*Search Form 
+                        <div class="search-hidden-form"  >
                             <form action="#" method="get">
                                 <input type="search" name="search" id="search-anything" placeholder="Search Anything...">
                                 <input type="submit" value="" class="d-none">
-                                <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
+                             
+                            </form>
+                        </div>*@
+
+                        <!-- Search Button Area -->
+                        <div class="search_button">
+                            <a  href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                        </div>
+
+                        <div>
+                            <form action="#" method="get">
+                                <input type="search" class="form-control" placeholder="Tìm kiếm món ăn..." />
                             </form>
                         </div>
+
+                        <div class="login_register_area d-flex" title="Thực đơn của tôi">
+                            <div class="login">
+                                <a href="/Order"><i class="fa fa-apple"></i>My menu</a>
+                            </div>                           
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -92,10 +103,16 @@
                 <!-- Logo Area Start -->
                 <div class="col-12">
                     <div class="logo_area text-center">
-                        <a href="index.html" class="yummy-logo">Pool Restaurant</a>
+                        <a href="/" class="yummy-logo">Pool Restaurant</a>
                     </div>
                 </div>
             </div><!-- Tên nhà hàng-->
+            @if (TempData["AlertMessage"] != null)
+            {
+                <div id="AlertBox" class="alert @TempData["AlertType"] hide" style="text-align:center;">
+                    @TempData["AlertMessage"]
+                </div>
+            }
 
             @{Html.RenderAction("MainMenu", "Home");}<!--Thanh menu chính-->
         </div>

@@ -337,3 +337,19 @@ h4{
     cursor:pointer;
     text-transform:capitalize;
 }
+
+.post-content{
+    margin-top:-10px;
+}
+
+.login a i{
+    font-size:18px;
+    color:#337ab7;
+    padding-right: 3px;
+}
+
+.login a:hover{   
+    cursor:pointer;
+    color:#337ab7;
+}
+

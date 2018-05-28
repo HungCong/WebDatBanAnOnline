@@ -22,9 +22,9 @@ namespace WebOrderTbRestaurant.Controllers
             return View();
         }
 
+        //lấy giá trị ngày đặt bàn, giờ đặt bàn, số lượng khách
         public JsonResult BookCustomer(string Cus_book)
-        {
-            //lấy giá trị ngày đặt bàn, giờ đặt bàn, số lượng khách
+        {         
             
             var JsonCus = new JavaScriptSerializer().Deserialize<BookCustomer[]>(Cus_book);
             var ord = new BookCustomer();
