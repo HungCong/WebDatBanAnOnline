@@ -13,6 +13,16 @@ namespace WebOrderTbRestaurant
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            //Rewrite URL đặt bàn có chọn menu
+            routes.MapRoute(
+                name: "Order menu food",
+                url: "dat-ban-menu",
+                defaults: new { controller = "Order", action = "BookMenu", id = UrlParameter.Optional },
+                namespaces: new[] { "WebOrderTbRestaurent.Controllers" }
+            );
+
+
             //Rewrite URL thêm món ăn vào menu
             routes.MapRoute(
                 name: "Add menu food",

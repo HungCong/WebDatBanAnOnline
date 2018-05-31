@@ -1,4 +1,5 @@
 ﻿using Order_RestaurantWCF.Model;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,12 @@ namespace Order_RestaurantWCF.Service
         public List<Banner> ListSlideFood()
         {
             return db.Banner.Where(x => x.Status == true).OrderByDescending(x => x.CreatedDate).Take(6).ToList();
+        }
+
+        public IEnumerable<Food> PageListFood()
+        {
+            IQueryable<Food> food = db.Food;
+            return food.OrderByDescending(x => x.CreatedDate < DateTime.Now).ToList();
         }
     }
 }

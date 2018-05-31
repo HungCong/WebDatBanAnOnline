@@ -1,4 +1,5 @@
 ﻿using Order_RestaurantWCF.Model;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +23,9 @@ namespace Order_RestaurantWCF.Service
         //Detail of Food
         [OperationContract]
         Food FindID(long id);
+
+        //PageList of Food
+        [OperationContract]
+        IEnumerable<Food> PageListFood();
     }
 }

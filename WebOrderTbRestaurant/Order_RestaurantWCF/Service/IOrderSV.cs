@@ -14,5 +14,8 @@ namespace Order_RestaurantWCF.Service
     {
         [OperationContract]
         bool Insert(OrderTable or);
+
+        [OperationContract]
+        long FindIDNew();
     }
 }

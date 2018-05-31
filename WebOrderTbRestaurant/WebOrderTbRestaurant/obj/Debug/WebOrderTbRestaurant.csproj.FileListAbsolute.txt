@@ -80,3 +80,7 @@ C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebO
 C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\WebOrderTbRestaurant\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\WebOrderTbRestaurant\obj\Debug\WebOrderTbRestaurant.dll
 C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\WebOrderTbRestaurant\obj\Debug\WebOrderTbRestaurant.pdb
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\WebOrderTbRestaurant\bin\PagedList.dll
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\WebOrderTbRestaurant\bin\PagedList.Mvc.dll
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\WebOrderTbRestaurant\bin\PagedList.xml
+C:\Users\Hung\Documents\GitHub\Web đặt bàn ăn online\WebDatBanAnOnline\WebOrderTbRestaurant\WebOrderTbRestaurant\bin\PagedList.Mvc.xml

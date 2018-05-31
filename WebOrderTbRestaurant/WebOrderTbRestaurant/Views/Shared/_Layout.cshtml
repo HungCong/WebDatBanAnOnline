@@ -27,7 +27,7 @@
     <link href="/Assets/Client/css/style.css" rel="stylesheet">
     <link href="~/Assets/Client/css/Button.css" rel="stylesheet" />
     <link href="~/Assets/Client/css/Menu.css" rel="stylesheet" />
-
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
 
     <!-- Responsive CSS -->
     <link href="/Assets/Client/css/responsive/responsive.css" rel="stylesheet">
@@ -106,10 +106,11 @@
                         <a href="/" class="yummy-logo">Pool Restaurant</a>
                     </div>
                 </div>
-            </div><!-- Tên nhà hàng-->
+            </div>
+            <!-- Alert Thông báo-->
             @if (TempData["AlertMessage"] != null)
             {
-                <div id="AlertBox" class="alert @TempData["AlertType"] hide" style="text-align:center;">
+                <div id="AlertBox" class="alert @TempData["AlertType"] hide" style="text-align:center; font-size: 28px;">
                     @TempData["AlertMessage"]
                 </div>
             }

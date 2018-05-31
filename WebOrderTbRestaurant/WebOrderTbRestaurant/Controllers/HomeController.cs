@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,13 +14,23 @@ namespace WebOrderTbRestaurant.Controllers
     public class HomeController : Controller
     {
         private const string OrderSesstion = "ordersesstion";
+        private const string BookFoodSesstion = "BookFood";
         // GET: Home
-        public ActionResult Index()
-        {     
+        public ActionResult Index(int page = 1, int pagesize = 6)
+        {
+            var fo = new Food.Food();
             var sv = new FoodSVClient();
-            ViewBag.Food_content = sv.ListAll();
             ViewBag.Food_Slide = sv.ListSlideFood();
-            return View();
+
+            var or = Session[BookFoodSesstion];
+            var FoodOr = new List<OrderFood>();
+            if (or != null)
+            {
+                FoodOr = (List<OrderFood>)or;
+            }
+            ViewBag.MenuList = FoodOr;
+            var model = sv.PageListFood().ToPagedList(page, pagesize);
+            return View(model);
         }
 
         //lấy giá trị ngày đặt bàn, giờ đặt bàn, số lượng khách

@@ -13,16 +13,35 @@
   <wsdl:message name="IOrderSV_Insert_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertResponse" />
   </wsdl:message>
+  <wsdl:message name="IOrderSV_FindIDNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindIDNew" />
+  </wsdl:message>
+  <wsdl:message name="IOrderSV_FindIDNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindIDNewResponse" />
+  </wsdl:message>
   <wsdl:portType name="IOrderSV">
     <wsdl:operation name="Insert">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderSV/Insert" message="tns:IOrderSV_Insert_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOrderSV/InsertResponse" message="tns:IOrderSV_Insert_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindIDNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderSV/FindIDNew" message="tns:IOrderSV_FindIDNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderSV/FindIDNewResponse" message="tns:IOrderSV_FindIDNew_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOrderSV" type="tns:IOrderSV">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Insert">
       <soap:operation soapAction="http://tempuri.org/IOrderSV/Insert" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindIDNew">
+      <soap:operation soapAction="http://tempuri.org/IOrderSV/FindIDNew" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

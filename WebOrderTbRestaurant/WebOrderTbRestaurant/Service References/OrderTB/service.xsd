@@ -15,4 +15,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="FindIDNew">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindIDNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FindIDNewResult" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

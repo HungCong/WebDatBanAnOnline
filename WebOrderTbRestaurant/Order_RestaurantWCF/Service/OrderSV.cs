@@ -16,6 +16,10 @@ namespace Order_RestaurantWCF.Service
         {
             db = new Order_Restaurant_Db();
         }
+
+        
+
+        //Lưu thông tin khách hàng đặt bàn
         public bool Insert(OrderTable or)
         {
             try
@@ -30,5 +34,16 @@ namespace Order_RestaurantWCF.Service
             }
            
         }
+
+        //Lấy ID vừa mới thêm vào csdl
+        public long FindIDNew()
+        {
+            var id = from or in db.OrderTable                   
+                   select or.ID  ;
+            return id.Max();
+        }
+
+
+
     }
 }

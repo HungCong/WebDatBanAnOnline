@@ -25,6 +25,12 @@
   <wsdl:message name="IFoodSV_FindID_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindIDResponse" />
   </wsdl:message>
+  <wsdl:message name="IFoodSV_PageListFood_InputMessage">
+    <wsdl:part name="parameters" element="tns:PageListFood" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_PageListFood_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PageListFoodResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFoodSV">
     <wsdl:operation name="ListAll">
       <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/ListAll" message="tns:IFoodSV_ListAll_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="FindID">
       <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/FindID" message="tns:IFoodSV_FindID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/FindIDResponse" message="tns:IFoodSV_FindID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PageListFood">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/PageListFood" message="tns:IFoodSV_PageListFood_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/PageListFoodResponse" message="tns:IFoodSV_PageListFood_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFoodSV" type="tns:IFoodSV">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="FindID">
       <soap:operation soapAction="http://tempuri.org/IFoodSV/FindID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PageListFood">
+      <soap:operation soapAction="http://tempuri.org/IFoodSV/PageListFood" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

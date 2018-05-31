@@ -1,0 +1,167 @@
+﻿@model List<WebOrderTbRestaurant.Models.OrderFood>
+@{
+    ViewBag.Title = "BookMenu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var sum = new long();
+    var order = (WebOrderTbRestaurant.Models.BookCustomer)ViewBag.order;
+}
+
+@section jsFooter{
+    <script type="text/javascript">
+        $("#date-order").datepicker({
+            closeText: 'Đóng',
+            prevText: '&#x3c;Trước',
+            nextText: 'Tiếp&#x3e;',
+            currentText: 'Hôm nay',
+            monthNames: ['Tháng Một', 'Tháng Hai', 'Tháng Ba', 'Tháng Tư', 'Tháng Năm', 'Tháng Sáu',
+                'Tháng Bảy', 'Tháng Tám', 'Tháng Chín', 'Tháng Mười', 'Th.Mười Một', 'Th.Mười Hai'],
+            monthNamesShort: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
+                'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+            dayNames: ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'],
+            dayNamesShort: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+            dayNamesMin: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+            weekHeader: 'Tu',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 0,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        });
+        $("#date-order").datepicker('setDate', new Date());
+    </script>
+    
+    <script src="~/Assets/Client/js/Order.js"></script>
+}
+
+
+<div class="banner">
+    <div class="container">
+        <div class="row">
+            <p>Đặt bàn</p>
+        </div>
+    </div>
+</div>
+
+<div class="datban_detail">
+    <div class="container">
+        <div class="row">
+            <div class="title-news-home">
+                <p class="p1">Đặt bàn</p>
+                <p class="p2">Pool Restaurant</p>
+            </div>
+            <div class="des_datban">Với hi vọng mang lại cho những bạn học viên có cơ hội tránh những bữa cơm khó ăn của nhà bếp, Nhà hàng bể bơi mang đến cho các bạn những món ăn đáng đồng tiền bát gạo mà các bạn bỏ ra, đảm bảo ngon, bổ, rẻ. Xin kính mời. ^^</div>
+            <div class="order">
+               <form method="post">
+                    <div class="col-sm-4 col-md-3 fullname">
+                        <input type="text" class="form-control name"  placeholder="Họ và tên *" required="required" />
+                        <input type="text" id="date-order" name="date" class="form-control datepicker" value="@order.BookDate" readonly="readonly" style="text-align:center;">
+                    </div>
+
+                    <div class="col-sm-4 col-md-3 fullname">
+                        <input type="text" class="form-control sodt" placeholder="Số điện thoại *">
+                        <input type="text" class="form-control AtTime" readonly="readonly" value="@order.Time">
+
+                    </div>
+                    <div class="col-sm-4 col-md-3 fullname">
+                        <input type="email"  class="form-control email" placeholder="Email"  >
+                        <input type="text" class="form-control quantity" placeholder="Số lượng khách" value="@order.Quantity">
+                    </div>
+                    <div class="col-sm-4 col-md-3 fullname">
+                        <textarea class="form-area noidung" placeholder="Nội dung" cols="34"  rows="4"></textarea>
+                        <button class="btn btn-warning btn-book" style="width: 200px; float:right;">Đặt bàn</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@if (Model.Count > 0)
+{
+    <div class="container">
+        <div class="row">
+            <div class="news-home">
+                <p class="p3" >Món ăn bạn đã đặt trước </p>
+            </div>
+            <table id="cart" class="table table-hover table-condensed ">
+                <thead>
+                    <tr>
+                        <th style="width:55%">Tên món ăn</th>
+                        <th style="width:5%">Giá</th>
+                        <th style="width:8%">Số lượng</th>
+                        <th style="width:22%" class="text-center">Thành tiền</th>
+                        <th style="width:10%"> </th>
+                    </tr>
+                </thead>
+                <tbody >
+                    @foreach (var item in Model)
+                    {
+                        <tr class="tb-order">   
+                            <td data-th="Product">
+                                <div class="row" style="margin-top:2px;">
+                                    <div class="col-sm-4 img-food">
+                                        <img src="@item.food.Image" class="img-responsive">
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <h4 class="nomargin">@item.food.Name</h4>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-th="Price">@item.food.Price.Value.ToString("N0") ₫</td>
+                            <td data-th="Quantity">
+                                <div class="form-control text-center">
+                                    <input class="txtQuantity" value="@item.quantity" type="number" data-id="@item.food.ID" data-price="@((item.food.Price.GetValueOrDefault(0) * item.quantity).ToString("N0"))">
+                                </div>
+                            </td>
+                            <td class="text-center">@((item.food.Price.GetValueOrDefault(0) * item.quantity).ToString("N0")) ₫</td>
+                            <td class="actions" data-th="">
+                                <div class="btn-Edit" title="Sửa số lượng">
+                                    <a class="btn btn-info btn-sm">
+                                        <i class="fa fa-edit"></i>@*button sửa sản phẩm*@
+                                    </a>
+                                </div>
+
+                                <div class="btn-Delete" title="Xóa sản phẩm" data-id="@item.food.ID">
+                                    <a class="btn btn-danger btn-sm">
+                                        <i class="fa fa-trash-o"></i>@*button xóa sản phẩm*@
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        sum += (long)(item.food.Price.GetValueOrDefault(0) * item.quantity);
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+
+                        <td>
+                            <a class="btn btn-success" id="btnDeleteAll"><i class="fa fa-times" style="color:#ff0000; margin-right:2px;"></i>Xóa thực đơn</a>
+                        </td>
+
+                        <td>
+                            <a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục xem món ăn</a>
+                        </td>
+                        <td class="hidden-xs"></td>
+                        <td colspan="2">
+                            Tổng tiền:<strong style="font-size:24px; color:#891801;">  @sum.ToString("N0") ₫  </strong>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <div class="warning">
+        <p>Bạn chưa có món ăn nào trong thực đơn</p>
+        <div class="btnWarning">
+            <a href="/" class="btn btn-info btn-rounded"><i class="fa fa-angle-left" style="padding-right:2px;"></i>Xem và đặt món ăn nào!!</a>
+        </div>
+    </div>
+}
+
+
+

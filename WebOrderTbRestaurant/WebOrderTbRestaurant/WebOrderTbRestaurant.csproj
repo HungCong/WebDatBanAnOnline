@@ -77,6 +77,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -204,8 +212,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BookCustomer.cs" />
+    <Compile Include="Models\BookFood.cs" />
+    <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\OrderFood.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\Book_Menu\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\Food\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -335,6 +350,7 @@
     <Content Include="Assets\Client\js\Menu.js" />
     <Content Include="Assets\Client\js\Order.js" />
     <Content Include="Assets\Client\js\others\plugins.js" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Order.html" />
@@ -365,6 +381,16 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <None Include="Service References\Book_Menu\Order_RestaurantWCF.Model.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Book_Menu\service.wsdl" />
+    <None Include="Service References\Book_Menu\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Book_Menu\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Food\configuration91.svcinfo" />
     <None Include="Service References\Food\configuration.svcinfo" />
     <None Include="Service References\Food\Reference.svcmap">
@@ -380,6 +406,12 @@
     <None Include="Service References\OrderTB\configuration91.svcinfo" />
     <None Include="Service References\OrderTB\configuration.svcinfo" />
     <None Include="Service References\OrderTB\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\Book_Menu\configuration91.svcinfo" />
+    <None Include="Service References\Book_Menu\configuration.svcinfo" />
+    <None Include="Service References\Book_Menu\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -441,6 +473,7 @@
       <SubType>Designer</SubType>
     </None>
     <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\BookMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -454,6 +487,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Book_Menu\" />
     <WCFMetadataStorage Include="Service References\Food\" />
     <WCFMetadataStorage Include="Service References\Main_Menu\" />
     <WCFMetadataStorage Include="Service References\OrderTB\" />

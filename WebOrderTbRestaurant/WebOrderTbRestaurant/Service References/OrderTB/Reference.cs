@@ -211,6 +211,12 @@ namespace WebOrderTbRestaurant.OrderTB {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/Insert", ReplyAction="http://tempuri.org/IOrderSV/InsertResponse")]
         System.Threading.Tasks.Task<bool> InsertAsync(WebOrderTbRestaurant.OrderTB.OrderTable or);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/FindIDNew", ReplyAction="http://tempuri.org/IOrderSV/FindIDNewResponse")]
+        long FindIDNew();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/FindIDNew", ReplyAction="http://tempuri.org/IOrderSV/FindIDNewResponse")]
+        System.Threading.Tasks.Task<long> FindIDNewAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -246,6 +252,14 @@ namespace WebOrderTbRestaurant.OrderTB {
         
         public System.Threading.Tasks.Task<bool> InsertAsync(WebOrderTbRestaurant.OrderTB.OrderTable or) {
             return base.Channel.InsertAsync(or);
+        }
+        
+        public long FindIDNew() {
+            return base.Channel.FindIDNew();
+        }
+        
+        public System.Threading.Tasks.Task<long> FindIDNewAsync() {
+            return base.Channel.FindIDNewAsync();
         }
     }
 }

@@ -412,6 +412,12 @@ namespace WebOrderTbRestaurant.Food {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/FindID", ReplyAction="http://tempuri.org/IFoodSV/FindIDResponse")]
         System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food> FindIDAsync(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/PageListFood", ReplyAction="http://tempuri.org/IFoodSV/PageListFoodResponse")]
+        WebOrderTbRestaurant.Food.Food[] PageListFood();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/PageListFood", ReplyAction="http://tempuri.org/IFoodSV/PageListFoodResponse")]
+        System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food[]> PageListFoodAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -463,6 +469,14 @@ namespace WebOrderTbRestaurant.Food {
         
         public System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food> FindIDAsync(long id) {
             return base.Channel.FindIDAsync(id);
+        }
+        
+        public WebOrderTbRestaurant.Food.Food[] PageListFood() {
+            return base.Channel.PageListFood();
+        }
+        
+        public System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food[]> PageListFoodAsync() {
+            return base.Channel.PageListFoodAsync();
         }
     }
 }

@@ -44,6 +44,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -57,7 +65,7 @@
   <ItemGroup>
     <Compile Include="Model\Banner.cs" />
     <Compile Include="Model\Food.cs" />
-    <Compile Include="Model\Food_Category.cs" />
+    <Compile Include="Model\Book_Food.cs" />
     <Compile Include="Model\Footer.cs" />
     <Compile Include="Model\Main_Menu.cs" />
     <Compile Include="Model\News.cs" />
@@ -65,7 +73,9 @@
     <Compile Include="Model\Order_Restaurant_Db.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\BookMenuSV.cs" />
     <Compile Include="Service\FoodSV.cs" />
+    <Compile Include="Service\IBookMenuSV.cs" />
     <Compile Include="Service\IFoodSV.cs" />
     <Compile Include="Service\IMenuSV.cs" />
     <Compile Include="Service\IOrderSV.cs" />
@@ -75,6 +85,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

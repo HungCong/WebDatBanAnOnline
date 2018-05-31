@@ -6,12 +6,17 @@ namespace Order_RestaurantWCF.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Food_Category
+    public partial class Book_Food
     {
         public long ID { get; set; }
+       
+        public long Food_ID { get; set; }
 
-        [StringLength(50)]
-        public string Category { get; set; }
+        public int Count { get; set; }
+
+        public Decimal? Price { get; set; }
+
+        public long OrderTable_ID { get; set; }
 
         public bool? Status { get; set; }
     }

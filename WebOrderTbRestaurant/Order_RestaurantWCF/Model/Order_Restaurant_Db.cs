@@ -14,7 +14,7 @@ namespace Order_RestaurantWCF.Model
 
         public virtual DbSet<Banner> Banner { get; set; }
         public virtual DbSet<Food> Food { get; set; }
-        public virtual DbSet<Food_Category> Food_Category { get; set; }
+        public virtual DbSet<Book_Food> Book_Food { get; set; }
         public virtual DbSet<Footer> Footer { get; set; }
         public virtual DbSet<Main_Menu> Main_Menu { get; set; }
         public virtual DbSet<News> News { get; set; }
