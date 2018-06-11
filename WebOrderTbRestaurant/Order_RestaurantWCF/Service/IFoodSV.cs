@@ -27,5 +27,25 @@ namespace Order_RestaurantWCF.Service
         //PageList of Food
         [OperationContract]
         IEnumerable<Food> PageListFood();
+
+        //Add new food
+        [OperationContract]
+        bool AddFood(Food entity);
+
+        //convert food name to metatitle
+        [OperationContract]
+        string Str_Metatitle(string str);
+
+        //Edit food
+        [OperationContract]
+        bool EditFood(Food entity);
+
+        //Delete food
+        [OperationContract]
+        bool DeleteFood(long id);
+
+        //give food name in food table
+        [OperationContract]
+        Food Find_FoodName(long food_id);
     }
 }

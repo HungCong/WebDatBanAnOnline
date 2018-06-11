@@ -15,4 +15,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OrderTable" nillable="true" type="tns:OrderTable" />
+  <xs:complexType name="ArrayOfOrderTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderTable" nillable="true" type="tns:OrderTable" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderTable" nillable="true" type="tns:ArrayOfOrderTable" />
 </xs:schema>

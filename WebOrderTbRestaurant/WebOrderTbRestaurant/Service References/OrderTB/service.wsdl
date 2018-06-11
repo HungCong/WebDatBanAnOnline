@@ -19,6 +19,36 @@
   <wsdl:message name="IOrderSV_FindIDNew_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindIDNewResponse" />
   </wsdl:message>
+  <wsdl:message name="IOrderSV_ListAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListAll" />
+  </wsdl:message>
+  <wsdl:message name="IOrderSV_ListAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderSV_FindID_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindID" />
+  </wsdl:message>
+  <wsdl:message name="IOrderSV_FindID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderSV_EditOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrder" />
+  </wsdl:message>
+  <wsdl:message name="IOrderSV_EditOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderSV_DeleteOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrder" />
+  </wsdl:message>
+  <wsdl:message name="IOrderSV_DeleteOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderSV_Find_FullName_InputMessage">
+    <wsdl:part name="parameters" element="tns:Find_FullName" />
+  </wsdl:message>
+  <wsdl:message name="IOrderSV_Find_FullName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Find_FullNameResponse" />
+  </wsdl:message>
   <wsdl:portType name="IOrderSV">
     <wsdl:operation name="Insert">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderSV/Insert" message="tns:IOrderSV_Insert_InputMessage" />
@@ -27,6 +57,26 @@
     <wsdl:operation name="FindIDNew">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderSV/FindIDNew" message="tns:IOrderSV_FindIDNew_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOrderSV/FindIDNewResponse" message="tns:IOrderSV_FindIDNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderSV/ListAll" message="tns:IOrderSV_ListAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderSV/ListAllResponse" message="tns:IOrderSV_ListAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderSV/FindID" message="tns:IOrderSV_FindID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderSV/FindIDResponse" message="tns:IOrderSV_FindID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderSV/EditOrder" message="tns:IOrderSV_EditOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderSV/EditOrderResponse" message="tns:IOrderSV_EditOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderSV/DeleteOrder" message="tns:IOrderSV_DeleteOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderSV/DeleteOrderResponse" message="tns:IOrderSV_DeleteOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Find_FullName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderSV/Find_FullName" message="tns:IOrderSV_Find_FullName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderSV/Find_FullNameResponse" message="tns:IOrderSV_Find_FullName_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOrderSV" type="tns:IOrderSV">
@@ -42,6 +92,51 @@
     </wsdl:operation>
     <wsdl:operation name="FindIDNew">
       <soap:operation soapAction="http://tempuri.org/IOrderSV/FindIDNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAll">
+      <soap:operation soapAction="http://tempuri.org/IOrderSV/ListAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindID">
+      <soap:operation soapAction="http://tempuri.org/IOrderSV/FindID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditOrder">
+      <soap:operation soapAction="http://tempuri.org/IOrderSV/EditOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <soap:operation soapAction="http://tempuri.org/IOrderSV/DeleteOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Find_FullName">
+      <soap:operation soapAction="http://tempuri.org/IOrderSV/Find_FullName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -353,3 +353,20 @@ h4{
     color:#337ab7;
 }
 
+.charecter-style{
+    font-family: 'Oswald', sans-serif;
+}
+
+.Name-title{
+    font-family: 'Encode Sans', sans-serif;
+    font-size:18px;
+    text-align:center;
+}
+
+#TimeBook{
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align:center;
+    margin-left: -8px;
+}

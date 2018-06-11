@@ -14,5 +14,25 @@ namespace Order_RestaurantWCF.Service
     {
         [OperationContract]
         bool InsertMenu(Book_Food bf);
+
+        //check IdOrder_Table in Book_Food table
+        [OperationContract]
+        bool CheckID(long id);
+
+        //find IdOrder_Table in Book_Food table
+        [OperationContract]
+        IEnumerable<Book_Food> FindID_OrderTB(long orderTB_ID);
+
+        //give all the menu
+        [OperationContract]
+        IEnumerable<Book_Food> ListAll();
+
+        [OperationContract]
+        //Edit Count of food
+        bool EditCount(long id, int count);
+
+        [OperationContract]
+        //Delete food
+        bool deleteFoodinMenu(long id);
     }
 }

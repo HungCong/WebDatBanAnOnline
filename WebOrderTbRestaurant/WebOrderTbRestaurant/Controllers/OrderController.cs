@@ -237,7 +237,7 @@ namespace WebOrderTbRestaurant.Controllers
             }
 
 
-            var bookFood = new Book_Food();
+            var bookFood = new Book_Menu.Book_Food();
             var listFood = menuJson.ToList();
             var idOrder = new OrderSVClient().FindIDNew();
 

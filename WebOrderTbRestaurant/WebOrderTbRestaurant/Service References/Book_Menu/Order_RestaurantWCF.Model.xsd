@@ -11,4 +11,10 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Book_Food" nillable="true" type="tns:Book_Food" />
+  <xs:complexType name="ArrayOfBook_Food">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Book_Food" nillable="true" type="tns:Book_Food" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBook_Food" nillable="true" type="tns:ArrayOfBook_Food" />
 </xs:schema>

@@ -1,0 +1,103 @@
+﻿@model WebOrderTbRestaurant.Slide.Banner
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    <script type="text/javascript">
+    $('#btnSelectImage').on('click', function (e) {
+        e.preventDefault();
+        var finder = new CKFinder();
+        finder.selectActionFunction = function (url) {
+            $('#txtImage').val(url);
+        };
+        finder.popup();
+    })
+    CKEDITOR.replace("NoiDung");
+    CKEDITOR.replace("ThanhPhan");
+  
+    </script>
+    <script src="~/Assets/Admin/js/ToolEdit.js"></script>
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header charecter-style">Thêm mới món ăn</h1>
+    </div>
+</div>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+      
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      
+
+        <div class="form-group">
+            <div class="control-label col-md-2 Name-title">
+                Tên món ăn
+            </div>
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2 Name-title">
+                Thành phần món ăn
+            </div>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Ingredient, new { @id = "ThanhPhan" })
+                @Html.ValidationMessageFor(model => model.Ingredient, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="control-label col-md-2 Name-title">
+                Hình ảnh
+            </div>
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control", @id = "txtImage" }, @id = "txtImage" })
+                <a id="btnSelectImage" href="#">Chọn ảnh</a>
+                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="control-label col-md-2 Name-title">
+                Giá
+            </div>
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control txtPrice" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="control-label col-md-2 Name-title">
+                Nội dung
+            </div>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Description, new { @id = "NoiDung" })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>     
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo mới" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

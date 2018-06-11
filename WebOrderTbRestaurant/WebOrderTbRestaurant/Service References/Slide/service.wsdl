@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SlideSV" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/Order_RestaurantWCF.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISlideSV_PageListSlide_InputMessage">
+    <wsdl:part name="parameters" element="tns:PageListSlide" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_PageListSlide_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PageListSlideResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_addSlide_InputMessage">
+    <wsdl:part name="parameters" element="tns:addSlide" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_addSlide_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addSlideResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_EditSlide_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditSlide" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_EditSlide_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditSlideResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_DeleteSlide_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSlide" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_DeleteSlide_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSlideResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_Str_Metatitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:Str_Metatitle" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_Str_Metatitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Str_MetatitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_FindID_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindID" />
+  </wsdl:message>
+  <wsdl:message name="ISlideSV_FindID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISlideSV">
+    <wsdl:operation name="PageListSlide">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideSV/PageListSlide" message="tns:ISlideSV_PageListSlide_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideSV/PageListSlideResponse" message="tns:ISlideSV_PageListSlide_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addSlide">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideSV/addSlide" message="tns:ISlideSV_addSlide_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideSV/addSlideResponse" message="tns:ISlideSV_addSlide_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditSlide">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideSV/EditSlide" message="tns:ISlideSV_EditSlide_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideSV/EditSlideResponse" message="tns:ISlideSV_EditSlide_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSlide">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideSV/DeleteSlide" message="tns:ISlideSV_DeleteSlide_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideSV/DeleteSlideResponse" message="tns:ISlideSV_DeleteSlide_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Str_Metatitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideSV/Str_Metatitle" message="tns:ISlideSV_Str_Metatitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideSV/Str_MetatitleResponse" message="tns:ISlideSV_Str_Metatitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISlideSV/FindID" message="tns:ISlideSV_FindID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISlideSV/FindIDResponse" message="tns:ISlideSV_FindID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISlideSV" type="tns:ISlideSV">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PageListSlide">
+      <soap:operation soapAction="http://tempuri.org/ISlideSV/PageListSlide" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addSlide">
+      <soap:operation soapAction="http://tempuri.org/ISlideSV/addSlide" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditSlide">
+      <soap:operation soapAction="http://tempuri.org/ISlideSV/EditSlide" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSlide">
+      <soap:operation soapAction="http://tempuri.org/ISlideSV/DeleteSlide" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Str_Metatitle">
+      <soap:operation soapAction="http://tempuri.org/ISlideSV/Str_Metatitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindID">
+      <soap:operation soapAction="http://tempuri.org/ISlideSV/FindID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SlideSV">
+    <wsdl:port name="BasicHttpBinding_ISlideSV" binding="tns:BasicHttpBinding_ISlideSV">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/Order_RestaurantWCF.Service/SlideSV/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

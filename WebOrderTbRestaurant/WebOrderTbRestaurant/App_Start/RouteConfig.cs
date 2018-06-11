@@ -19,7 +19,7 @@ namespace WebOrderTbRestaurant
                 name: "Order menu food",
                 url: "dat-ban-menu",
                 defaults: new { controller = "Order", action = "BookMenu", id = UrlParameter.Optional },
-                namespaces: new[] { "WebOrderTbRestaurent.Controllers" }
+                namespaces: new string[] { "WebOrderTbRestaurant.Controllers" }
             );
 
 
@@ -28,7 +28,7 @@ namespace WebOrderTbRestaurant
                 name: "Add menu food",
                 url: "my-menu",
                 defaults: new { controller = "Order", action = "AddMenu", id = UrlParameter.Optional },
-                namespaces: new[] { "WebOrderTbRestaurent.Controllers" }
+                namespaces: new string[] { "WebOrderTbRestaurant.Controllers" }
             );
 
 
@@ -37,7 +37,7 @@ namespace WebOrderTbRestaurant
                 name: "Order table",
                 url: "dat-ban",
                 defaults: new { controller = "Order", action = "PageOrder", id = UrlParameter.Optional },
-                namespaces: new[] { "WebOrderTbRestaurent.Controllers" }
+                namespaces: new string[] { "WebOrderTbRestaurent.Controllers" }
             );
 
             //Rewrite URL chi tiết món ăn
@@ -45,14 +45,14 @@ namespace WebOrderTbRestaurant
                 name: "Food detail",
                 url: "thuc-don/{metatitle}-{id}",
                 defaults: new { controller = "Food", action = "Detail", id = UrlParameter.Optional },
-                namespaces: new[] { "WebOrderTbRestaurent.Controllers" }
+                namespaces: new string[] { "WebOrderTbRestaurent.Controllers" }
             );
 
             routes.MapRoute(
                name: "Default",
                url: "{controller}/{action}/{id}",
                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-               namespaces: new[] { "WebOrderTbRestaurent.Controllers" }
+               namespaces: new[] { "WebOrderTbRestaurant.Controllers" }
            );
         }
     }

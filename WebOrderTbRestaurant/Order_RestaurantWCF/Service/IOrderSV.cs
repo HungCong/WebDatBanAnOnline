@@ -17,5 +17,22 @@ namespace Order_RestaurantWCF.Service
 
         [OperationContract]
         long FindIDNew();
+
+        [OperationContract]
+        IEnumerable<OrderTable> ListAll();
+
+        [OperationContract]
+        OrderTable FindID(long id);
+
+        [OperationContract]
+        bool EditOrder(OrderTable or);
+
+        [OperationContract]
+        bool DeleteOrder(long id);
+
+        //Give full name in order_TB
+        [OperationContract]
+        OrderTable Find_FullName(long order_id);
+
     }
 }

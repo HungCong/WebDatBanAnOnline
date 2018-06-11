@@ -418,6 +418,36 @@ namespace WebOrderTbRestaurant.Food {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/PageListFood", ReplyAction="http://tempuri.org/IFoodSV/PageListFoodResponse")]
         System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food[]> PageListFoodAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/AddFood", ReplyAction="http://tempuri.org/IFoodSV/AddFoodResponse")]
+        bool AddFood(WebOrderTbRestaurant.Food.Food entity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/AddFood", ReplyAction="http://tempuri.org/IFoodSV/AddFoodResponse")]
+        System.Threading.Tasks.Task<bool> AddFoodAsync(WebOrderTbRestaurant.Food.Food entity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/Str_Metatitle", ReplyAction="http://tempuri.org/IFoodSV/Str_MetatitleResponse")]
+        string Str_Metatitle(string str);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/Str_Metatitle", ReplyAction="http://tempuri.org/IFoodSV/Str_MetatitleResponse")]
+        System.Threading.Tasks.Task<string> Str_MetatitleAsync(string str);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/EditFood", ReplyAction="http://tempuri.org/IFoodSV/EditFoodResponse")]
+        bool EditFood(WebOrderTbRestaurant.Food.Food entity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/EditFood", ReplyAction="http://tempuri.org/IFoodSV/EditFoodResponse")]
+        System.Threading.Tasks.Task<bool> EditFoodAsync(WebOrderTbRestaurant.Food.Food entity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/DeleteFood", ReplyAction="http://tempuri.org/IFoodSV/DeleteFoodResponse")]
+        bool DeleteFood(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/DeleteFood", ReplyAction="http://tempuri.org/IFoodSV/DeleteFoodResponse")]
+        System.Threading.Tasks.Task<bool> DeleteFoodAsync(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/Find_FoodName", ReplyAction="http://tempuri.org/IFoodSV/Find_FoodNameResponse")]
+        WebOrderTbRestaurant.Food.Food Find_FoodName(long food_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/Find_FoodName", ReplyAction="http://tempuri.org/IFoodSV/Find_FoodNameResponse")]
+        System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food> Find_FoodNameAsync(long food_id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -477,6 +507,46 @@ namespace WebOrderTbRestaurant.Food {
         
         public System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food[]> PageListFoodAsync() {
             return base.Channel.PageListFoodAsync();
+        }
+        
+        public bool AddFood(WebOrderTbRestaurant.Food.Food entity) {
+            return base.Channel.AddFood(entity);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddFoodAsync(WebOrderTbRestaurant.Food.Food entity) {
+            return base.Channel.AddFoodAsync(entity);
+        }
+        
+        public string Str_Metatitle(string str) {
+            return base.Channel.Str_Metatitle(str);
+        }
+        
+        public System.Threading.Tasks.Task<string> Str_MetatitleAsync(string str) {
+            return base.Channel.Str_MetatitleAsync(str);
+        }
+        
+        public bool EditFood(WebOrderTbRestaurant.Food.Food entity) {
+            return base.Channel.EditFood(entity);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EditFoodAsync(WebOrderTbRestaurant.Food.Food entity) {
+            return base.Channel.EditFoodAsync(entity);
+        }
+        
+        public bool DeleteFood(long id) {
+            return base.Channel.DeleteFood(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteFoodAsync(long id) {
+            return base.Channel.DeleteFoodAsync(id);
+        }
+        
+        public WebOrderTbRestaurant.Food.Food Find_FoodName(long food_id) {
+            return base.Channel.Find_FoodName(food_id);
+        }
+        
+        public System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food> Find_FoodNameAsync(long food_id) {
+            return base.Channel.Find_FoodNameAsync(food_id);
         }
     }
 }

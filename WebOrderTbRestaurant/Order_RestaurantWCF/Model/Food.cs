@@ -17,7 +17,7 @@ namespace Order_RestaurantWCF.Model
         [StringLength(100)]
         public string MetaTitle { get; set; }
 
-        [StringLength(500)]
+     
         public string Ingredient { get; set; }
 
         [StringLength(250)]

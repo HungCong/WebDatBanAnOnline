@@ -54,11 +54,13 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -79,8 +81,10 @@
     <Compile Include="Service\IFoodSV.cs" />
     <Compile Include="Service\IMenuSV.cs" />
     <Compile Include="Service\IOrderSV.cs" />
+    <Compile Include="Service\ISlideSV.cs" />
     <Compile Include="Service\MenuSV.cs" />
     <Compile Include="Service\OrderSV.cs" />
+    <Compile Include="Service\SlideSV.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

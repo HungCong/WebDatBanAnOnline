@@ -1,0 +1,112 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@using WebOrderTbRestaurant.OrderTB;
+
+@model PagedList.IPagedList<OrderTable>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var id_order = (List<long>)ViewBag.IDorder;
+
+}
+@section jsFooter{
+    <script src="~/Assets/Admin/js/ToolEdit.js"></script>
+}
+
+
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Khách hàng</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Danh sách khách hàng đã đặt bàn trước
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                        <tr>
+                            <th style="width:15%; text-align:center;">Họ và tên</th>
+                            <th style="width:10%; text-align:center;">Số điện thoại</th>
+                            <th style="text-align:center;">Email</th>
+                            <th style="width:10%; text-align:center;">Ngày đặt bàn</th>
+                            <th style="width:5%; text-align:center;">Giờ đặt bàn</th>
+                            <th style="width:3%; text-align:center;">Số lượng khách</th>
+                            <th style="width:15%; text-align:center;">Đặt trước thực đơn</th>
+                            <th style="text-align:center;">Ghi chú</th>
+                            <th style="width:11%;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        @foreach (var item in Model)
+                        {
+                            bool tag = true;
+                          
+                            <tr class="odd gradeX">
+                                <td>@item.Full_Name</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Email</td>
+                                <td>@item.DateBook</td>
+                                <td>@item.TimeBook</td>
+                                <td>@item.Count_people</td>
+                                @foreach (var or in id_order)
+                                {
+                                    if (item.ID == or)
+                                    {
+                                        <td class="btn-enable"><a href="/Admin/BookFood/Index?orderTB_id=@item.ID" class="btn btn-info btn-enable">Có</a></td>
+                                        tag = false;
+                                    }                                    
+
+                                }
+
+                                @if(tag == true)
+                                {
+                                    <td class="btn-disable"><a href="#" class="btn btn-warning disabled btn-disable" >Không</a></td>
+                                }
+
+                                <td>@item.Description</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a href="/Admin/OrderTable/Edit/@item.ID" class="btn glyphicon glyphicon-edit btn-primary" title="Sửa thông tin khách hàng"></a>
+                                        <button type="button" class="btn glyphicon glyphicon-remove btn-danger btn-Del-User" title="Xóa khách hàng" data-id="@item.ID"></button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+                <!-- /.table-responsive -->
+
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-12">
+        <div class="pagination-area d-sm-flex mt-15">
+            <div class="page-status">
+                <p>Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</p>
+            </div>
+            <nav aria-label="#">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </nav>
+        </div>
+    </div>
+</div>
+

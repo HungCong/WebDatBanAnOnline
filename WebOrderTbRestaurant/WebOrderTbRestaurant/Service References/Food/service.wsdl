@@ -31,6 +31,36 @@
   <wsdl:message name="IFoodSV_PageListFood_OutputMessage">
     <wsdl:part name="parameters" element="tns:PageListFoodResponse" />
   </wsdl:message>
+  <wsdl:message name="IFoodSV_AddFood_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFood" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_AddFood_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_Str_Metatitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:Str_Metatitle" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_Str_Metatitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Str_MetatitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_EditFood_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditFood" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_EditFood_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditFoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_DeleteFood_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFood" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_DeleteFood_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_Find_FoodName_InputMessage">
+    <wsdl:part name="parameters" element="tns:Find_FoodName" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_Find_FoodName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Find_FoodNameResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFoodSV">
     <wsdl:operation name="ListAll">
       <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/ListAll" message="tns:IFoodSV_ListAll_InputMessage" />
@@ -47,6 +77,26 @@
     <wsdl:operation name="PageListFood">
       <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/PageListFood" message="tns:IFoodSV_PageListFood_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/PageListFoodResponse" message="tns:IFoodSV_PageListFood_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFood">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/AddFood" message="tns:IFoodSV_AddFood_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/AddFoodResponse" message="tns:IFoodSV_AddFood_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Str_Metatitle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/Str_Metatitle" message="tns:IFoodSV_Str_Metatitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/Str_MetatitleResponse" message="tns:IFoodSV_Str_Metatitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditFood">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/EditFood" message="tns:IFoodSV_EditFood_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/EditFoodResponse" message="tns:IFoodSV_EditFood_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFood">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/DeleteFood" message="tns:IFoodSV_DeleteFood_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/DeleteFoodResponse" message="tns:IFoodSV_DeleteFood_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Find_FoodName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/Find_FoodName" message="tns:IFoodSV_Find_FoodName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/Find_FoodNameResponse" message="tns:IFoodSV_Find_FoodName_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFoodSV" type="tns:IFoodSV">
@@ -80,6 +130,51 @@
     </wsdl:operation>
     <wsdl:operation name="PageListFood">
       <soap:operation soapAction="http://tempuri.org/IFoodSV/PageListFood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFood">
+      <soap:operation soapAction="http://tempuri.org/IFoodSV/AddFood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Str_Metatitle">
+      <soap:operation soapAction="http://tempuri.org/IFoodSV/Str_Metatitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditFood">
+      <soap:operation soapAction="http://tempuri.org/IFoodSV/EditFood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFood">
+      <soap:operation soapAction="http://tempuri.org/IFoodSV/DeleteFood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Find_FoodName">
+      <soap:operation soapAction="http://tempuri.org/IFoodSV/Find_FoodName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

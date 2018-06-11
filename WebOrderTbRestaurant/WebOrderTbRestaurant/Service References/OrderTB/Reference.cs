@@ -217,6 +217,36 @@ namespace WebOrderTbRestaurant.OrderTB {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/FindIDNew", ReplyAction="http://tempuri.org/IOrderSV/FindIDNewResponse")]
         System.Threading.Tasks.Task<long> FindIDNewAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/ListAll", ReplyAction="http://tempuri.org/IOrderSV/ListAllResponse")]
+        WebOrderTbRestaurant.OrderTB.OrderTable[] ListAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/ListAll", ReplyAction="http://tempuri.org/IOrderSV/ListAllResponse")]
+        System.Threading.Tasks.Task<WebOrderTbRestaurant.OrderTB.OrderTable[]> ListAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/FindID", ReplyAction="http://tempuri.org/IOrderSV/FindIDResponse")]
+        WebOrderTbRestaurant.OrderTB.OrderTable FindID(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/FindID", ReplyAction="http://tempuri.org/IOrderSV/FindIDResponse")]
+        System.Threading.Tasks.Task<WebOrderTbRestaurant.OrderTB.OrderTable> FindIDAsync(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/EditOrder", ReplyAction="http://tempuri.org/IOrderSV/EditOrderResponse")]
+        bool EditOrder(WebOrderTbRestaurant.OrderTB.OrderTable or);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/EditOrder", ReplyAction="http://tempuri.org/IOrderSV/EditOrderResponse")]
+        System.Threading.Tasks.Task<bool> EditOrderAsync(WebOrderTbRestaurant.OrderTB.OrderTable or);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/DeleteOrder", ReplyAction="http://tempuri.org/IOrderSV/DeleteOrderResponse")]
+        bool DeleteOrder(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/DeleteOrder", ReplyAction="http://tempuri.org/IOrderSV/DeleteOrderResponse")]
+        System.Threading.Tasks.Task<bool> DeleteOrderAsync(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/Find_FullName", ReplyAction="http://tempuri.org/IOrderSV/Find_FullNameResponse")]
+        WebOrderTbRestaurant.OrderTB.OrderTable Find_FullName(long order_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderSV/Find_FullName", ReplyAction="http://tempuri.org/IOrderSV/Find_FullNameResponse")]
+        System.Threading.Tasks.Task<WebOrderTbRestaurant.OrderTB.OrderTable> Find_FullNameAsync(long order_id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -260,6 +290,46 @@ namespace WebOrderTbRestaurant.OrderTB {
         
         public System.Threading.Tasks.Task<long> FindIDNewAsync() {
             return base.Channel.FindIDNewAsync();
+        }
+        
+        public WebOrderTbRestaurant.OrderTB.OrderTable[] ListAll() {
+            return base.Channel.ListAll();
+        }
+        
+        public System.Threading.Tasks.Task<WebOrderTbRestaurant.OrderTB.OrderTable[]> ListAllAsync() {
+            return base.Channel.ListAllAsync();
+        }
+        
+        public WebOrderTbRestaurant.OrderTB.OrderTable FindID(long id) {
+            return base.Channel.FindID(id);
+        }
+        
+        public System.Threading.Tasks.Task<WebOrderTbRestaurant.OrderTB.OrderTable> FindIDAsync(long id) {
+            return base.Channel.FindIDAsync(id);
+        }
+        
+        public bool EditOrder(WebOrderTbRestaurant.OrderTB.OrderTable or) {
+            return base.Channel.EditOrder(or);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EditOrderAsync(WebOrderTbRestaurant.OrderTB.OrderTable or) {
+            return base.Channel.EditOrderAsync(or);
+        }
+        
+        public bool DeleteOrder(long id) {
+            return base.Channel.DeleteOrder(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteOrderAsync(long id) {
+            return base.Channel.DeleteOrderAsync(id);
+        }
+        
+        public WebOrderTbRestaurant.OrderTB.OrderTable Find_FullName(long order_id) {
+            return base.Channel.Find_FullName(order_id);
+        }
+        
+        public System.Threading.Tasks.Task<WebOrderTbRestaurant.OrderTB.OrderTable> Find_FullNameAsync(long order_id) {
+            return base.Channel.Find_FullNameAsync(order_id);
         }
     }
 }

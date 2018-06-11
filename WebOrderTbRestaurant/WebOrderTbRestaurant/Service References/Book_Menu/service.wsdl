@@ -13,16 +13,111 @@
   <wsdl:message name="IBookMenuSV_InsertMenu_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertMenuResponse" />
   </wsdl:message>
+  <wsdl:message name="IBookMenuSV_CheckID_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckID" />
+  </wsdl:message>
+  <wsdl:message name="IBookMenuSV_CheckID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookMenuSV_FindID_OrderTB_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindID_OrderTB" />
+  </wsdl:message>
+  <wsdl:message name="IBookMenuSV_FindID_OrderTB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindID_OrderTBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookMenuSV_ListAll_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListAll" />
+  </wsdl:message>
+  <wsdl:message name="IBookMenuSV_ListAll_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListAllResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookMenuSV_EditCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditCount" />
+  </wsdl:message>
+  <wsdl:message name="IBookMenuSV_EditCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBookMenuSV_deleteFoodinMenu_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteFoodinMenu" />
+  </wsdl:message>
+  <wsdl:message name="IBookMenuSV_deleteFoodinMenu_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteFoodinMenuResponse" />
+  </wsdl:message>
   <wsdl:portType name="IBookMenuSV">
     <wsdl:operation name="InsertMenu">
       <wsdl:input wsaw:Action="http://tempuri.org/IBookMenuSV/InsertMenu" message="tns:IBookMenuSV_InsertMenu_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IBookMenuSV/InsertMenuResponse" message="tns:IBookMenuSV_InsertMenu_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookMenuSV/CheckID" message="tns:IBookMenuSV_CheckID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookMenuSV/CheckIDResponse" message="tns:IBookMenuSV_CheckID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindID_OrderTB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookMenuSV/FindID_OrderTB" message="tns:IBookMenuSV_FindID_OrderTB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookMenuSV/FindID_OrderTBResponse" message="tns:IBookMenuSV_FindID_OrderTB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListAll">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookMenuSV/ListAll" message="tns:IBookMenuSV_ListAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookMenuSV/ListAllResponse" message="tns:IBookMenuSV_ListAll_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookMenuSV/EditCount" message="tns:IBookMenuSV_EditCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookMenuSV/EditCountResponse" message="tns:IBookMenuSV_EditCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteFoodinMenu">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBookMenuSV/deleteFoodinMenu" message="tns:IBookMenuSV_deleteFoodinMenu_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBookMenuSV/deleteFoodinMenuResponse" message="tns:IBookMenuSV_deleteFoodinMenu_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IBookMenuSV" type="tns:IBookMenuSV">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="InsertMenu">
       <soap:operation soapAction="http://tempuri.org/IBookMenuSV/InsertMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckID">
+      <soap:operation soapAction="http://tempuri.org/IBookMenuSV/CheckID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindID_OrderTB">
+      <soap:operation soapAction="http://tempuri.org/IBookMenuSV/FindID_OrderTB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListAll">
+      <soap:operation soapAction="http://tempuri.org/IBookMenuSV/ListAll" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditCount">
+      <soap:operation soapAction="http://tempuri.org/IBookMenuSV/EditCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteFoodinMenu">
+      <soap:operation soapAction="http://tempuri.org/IBookMenuSV/deleteFoodinMenu" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

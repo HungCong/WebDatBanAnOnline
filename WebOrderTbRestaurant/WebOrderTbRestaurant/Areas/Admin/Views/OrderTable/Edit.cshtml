@@ -1,0 +1,138 @@
+﻿@model WebOrderTbRestaurant.OrderTB.OrderTable
+@using WebOrderTbRestaurant.Areas.Admin.Models;
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section jsFooter{
+    <script src="~/Assets/Client/js/date-picker/date.format.js"></script>
+    <script type="text/javascript">
+        $("#date-now").datepicker({
+            closeText: 'Đóng',
+            prevText: '&#x3c;Trước',
+            nextText: 'Tiếp&#x3e;',
+            currentText: 'Hôm nay',
+            monthNames: ['Tháng Một', 'Tháng Hai', 'Tháng Ba', 'Tháng Tư', 'Tháng Năm', 'Tháng Sáu',
+                'Tháng Bảy', 'Tháng Tám', 'Tháng Chín', 'Tháng Mười', 'Th.Mười Một', 'Th.Mười Hai'],
+            monthNamesShort: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
+                'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+            dayNames: ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'],
+            dayNamesShort: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+            dayNamesMin: ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'],
+            weekHeader: 'Tu',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 0,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        });
+        $("#date-now").datepicker('setDate', new Date());
+    </script>
+
+
+}
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header charecter-style">Sửa thông tin khách hàng</h1>
+    </div>
+</div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+                <!--Họ và tên-->
+                <div class="form-group">
+                    <div class="control-label col-md-2 Name-title">
+                        Họ và tên
+                    </div>
+                    <div class="col-sm-4 col-md-3">
+                        @Html.EditorFor(model => model.Full_Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Full_Name, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <!--Số điện thoại-->
+                <div class="form-group">
+                    <div class="control-label col-md-2 Name-title">
+                        Số điện thoại
+                    </div>                    
+                    <div class="col-sm-4 col-md-2">
+                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <!--Email-->
+                <div class="form-group">
+                    <div class="control-label col-md-2 Name-title">
+                        Email
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <!--Ngày đặt-->
+                <div class="form-group">
+                    <div class="control-label col-md-2 Name-title">
+                       Ngày đặt
+                    </div>                  
+                    <div class="col-md-3">
+                        @Html.EditorFor(model => model.DateBook, new { htmlAttributes = new { @class = "form-control", @id = "date-now" } })
+                        @Html.ValidationMessageFor(model => model.DateBook, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="control-label col-md-2 Name-title">
+                        Thời gian đặt
+                    </div>
+                    <div class="col-md-2">                       
+                        @Html.DropDownListFor(model => model.TimeBook,(SelectList)ViewBag.selectTime, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TimeBook, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="control-label col-md-2 Name-title">
+                        Số lượng khách
+                    </div>
+                    <div class="col-md-1">
+                        @Html.EditorFor(model => model.Count_people, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Count_people, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+               
+                <!--Nội dung-->
+
+                <div class="form-group">
+                    <div class="control-label col-md-2 Name-title">
+                        Nội dung
+                    </div>
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-area", @style = "width: 500px; height: 200px;" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>              
+                
+
+                @Html.HiddenFor(model => model.ID)           
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Cập nhật" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }    
+<div>
+    @Html.ActionLink("Quay lại ", "Index")
+</div>

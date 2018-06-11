@@ -147,6 +147,36 @@ namespace WebOrderTbRestaurant.Book_Menu {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/InsertMenu", ReplyAction="http://tempuri.org/IBookMenuSV/InsertMenuResponse")]
         System.Threading.Tasks.Task<bool> InsertMenuAsync(WebOrderTbRestaurant.Book_Menu.Book_Food bf);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/CheckID", ReplyAction="http://tempuri.org/IBookMenuSV/CheckIDResponse")]
+        bool CheckID(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/CheckID", ReplyAction="http://tempuri.org/IBookMenuSV/CheckIDResponse")]
+        System.Threading.Tasks.Task<bool> CheckIDAsync(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/FindID_OrderTB", ReplyAction="http://tempuri.org/IBookMenuSV/FindID_OrderTBResponse")]
+        WebOrderTbRestaurant.Book_Menu.Book_Food[] FindID_OrderTB(long orderTB_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/FindID_OrderTB", ReplyAction="http://tempuri.org/IBookMenuSV/FindID_OrderTBResponse")]
+        System.Threading.Tasks.Task<WebOrderTbRestaurant.Book_Menu.Book_Food[]> FindID_OrderTBAsync(long orderTB_ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/ListAll", ReplyAction="http://tempuri.org/IBookMenuSV/ListAllResponse")]
+        WebOrderTbRestaurant.Book_Menu.Book_Food[] ListAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/ListAll", ReplyAction="http://tempuri.org/IBookMenuSV/ListAllResponse")]
+        System.Threading.Tasks.Task<WebOrderTbRestaurant.Book_Menu.Book_Food[]> ListAllAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/EditCount", ReplyAction="http://tempuri.org/IBookMenuSV/EditCountResponse")]
+        bool EditCount(long id, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/EditCount", ReplyAction="http://tempuri.org/IBookMenuSV/EditCountResponse")]
+        System.Threading.Tasks.Task<bool> EditCountAsync(long id, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/deleteFoodinMenu", ReplyAction="http://tempuri.org/IBookMenuSV/deleteFoodinMenuResponse")]
+        bool deleteFoodinMenu(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IBookMenuSV/deleteFoodinMenu", ReplyAction="http://tempuri.org/IBookMenuSV/deleteFoodinMenuResponse")]
+        System.Threading.Tasks.Task<bool> deleteFoodinMenuAsync(long id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -182,6 +212,46 @@ namespace WebOrderTbRestaurant.Book_Menu {
         
         public System.Threading.Tasks.Task<bool> InsertMenuAsync(WebOrderTbRestaurant.Book_Menu.Book_Food bf) {
             return base.Channel.InsertMenuAsync(bf);
+        }
+        
+        public bool CheckID(long id) {
+            return base.Channel.CheckID(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> CheckIDAsync(long id) {
+            return base.Channel.CheckIDAsync(id);
+        }
+        
+        public WebOrderTbRestaurant.Book_Menu.Book_Food[] FindID_OrderTB(long orderTB_ID) {
+            return base.Channel.FindID_OrderTB(orderTB_ID);
+        }
+        
+        public System.Threading.Tasks.Task<WebOrderTbRestaurant.Book_Menu.Book_Food[]> FindID_OrderTBAsync(long orderTB_ID) {
+            return base.Channel.FindID_OrderTBAsync(orderTB_ID);
+        }
+        
+        public WebOrderTbRestaurant.Book_Menu.Book_Food[] ListAll() {
+            return base.Channel.ListAll();
+        }
+        
+        public System.Threading.Tasks.Task<WebOrderTbRestaurant.Book_Menu.Book_Food[]> ListAllAsync() {
+            return base.Channel.ListAllAsync();
+        }
+        
+        public bool EditCount(long id, int count) {
+            return base.Channel.EditCount(id, count);
+        }
+        
+        public System.Threading.Tasks.Task<bool> EditCountAsync(long id, int count) {
+            return base.Channel.EditCountAsync(id, count);
+        }
+        
+        public bool deleteFoodinMenu(long id) {
+            return base.Channel.deleteFoodinMenu(id);
+        }
+        
+        public System.Threading.Tasks.Task<bool> deleteFoodinMenuAsync(long id) {
+            return base.Channel.deleteFoodinMenuAsync(id);
         }
     }
 }
