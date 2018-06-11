@@ -34,8 +34,7 @@
                             <th>Tên món ăn </th>
                             <th>Số lượng </th>
                             <th>Giá</th>
-                            <th>Tên khách hàng</th>
-                            <th></th>
+                            <th>Tên khách hàng</th>                            
                         </tr>
                     </thead>
                     <tbody>
@@ -54,7 +53,7 @@
                                 }
 
                                 <td>@item.Count</td>
-                                <td>@item.Price.Value.ToString("N0")</td>
+                                <td>@item.Price.Value.ToString("N0") đ/món</td>
                                 @foreach (var or in fullname)
                                 {
                                     if (item.OrderTable_ID == or.ID)

@@ -248,6 +248,7 @@
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\OrderTableController.cs" />
     <Compile Include="Areas\Admin\Controllers\SlideController.cs" />
+    <Compile Include="Areas\Admin\Models\EditCount.cs" />
     <Compile Include="Areas\Admin\Models\TimeBook.cs" />
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

@@ -114,7 +114,7 @@ namespace Order_RestaurantWCF.Service
 
         public IEnumerable<Banner> PageListSlide()
         {
-            return db.Banner.OrderBy(x => x.CreatedDate < DateTime.Now).ToList();
+            return db.Banner.OrderByDescending(x => x.CreatedDate <= DateTime.Now).ToList();
         }
 
         public Banner FindID(long id)

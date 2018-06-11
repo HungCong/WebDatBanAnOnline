@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using WebOrderTbRestaurant.Areas.Admin.Models;
 using WebOrderTbRestaurant.Book_Menu;
 
 namespace WebOrderTbRestaurant.Areas.Admin.Controllers
@@ -28,6 +30,7 @@ namespace WebOrderTbRestaurant.Areas.Admin.Controllers
 
             ViewBag.FullName = list_FullName;
             ViewBag.FoodName = list_FoodName;
+            Session["editCount"] = model;
             return View(model);
         }
 
@@ -56,18 +59,35 @@ namespace WebOrderTbRestaurant.Areas.Admin.Controllers
 
         //Edit count of food
         // GET: Admin/BookFood/Edit/5
-        public JsonResult Edit(long id, int count)
+        public JsonResult Edit(string edit)
         {
-            var res = new BookMenuSVClient().EditCount(id, count);
+            var give = new JavaScriptSerializer().Deserialize<List<EditCount>>(edit);
+            var count = (WebOrderTbRestaurant.Book_Menu.Book_Food[])Session["editCount"];
+            var res = new bool();
+            foreach (var item in count)
+            {
+                foreach(var bok in give)
+                {
+                   
+                    if ( bok.id == item.ID)
+                    {
+                        item.Count = bok.count;
+                        res = new BookMenuSVClient().EditCount(item.ID, item.Count);                    
+                    }
+                }
+               
+               
+            }
+            
             if (res)
             {
                 SetAlert("Sửa số lượng món thành công", "success");
-                return Json(new { status = true });
+                return Json(new { status = true});
             }
             else
             {
                 SetAlert("Sửa số lượng KHÔNG thành công", "error");
-                return Json(new { status = false });
+                return Json(new { status = false});
             }
         }
 

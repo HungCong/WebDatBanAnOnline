@@ -1,5 +1,5 @@
 ﻿var tool = {
-    init: function(){
+    init: function () {
         tool.regEvent();
     },
     regEvent: function () {
@@ -7,22 +7,22 @@
         $('.btn-Del-User').off('click').on('click', function (e) {
             var conf = confirm("Bạn có muốn xóa khách hàng này??");
             if (conf == true) {
-                $.ajax({                    
+                $.ajax({
                     data: { id: $(this).data('id') },
                     url: '/Admin/OrderTable/Delete',
                     dataType: 'Json',
                     type: 'POST',
                     success: function (res) {
-                        if (res.status == true) {                            
-                            window.location.href = "/Admin/OrderTable/Index";                           
+                        if (res.status == true) {
+                            window.location.href = "/Admin/OrderTable/Index";
                         }
                         else {
-                            window.location.href = "/Admin/OrderTable/Index";                            
+                            window.location.href = "/Admin/OrderTable/Index";
                         }
                     }
                 });
-            }         
-           
+            }
+
         });
 
         //Xóa món ăn
@@ -37,7 +37,7 @@
                     success: function (res) {
                         if (res.status == true) {
                             window.location.href = "/Admin/Fooder/Index";
-                        } 
+                        }
                         else {
                             window.location.href = "/Admin/Fooder/Index";
                         }
@@ -69,6 +69,7 @@
 
         //Xóa món ăn trong thực đơn
         $('.btn-Del-BookFood').off('click').on('click', function (e) {
+            var idname = $('.txtCountBook').data('fullname');            
             var conf = confirm("Bạn có muốn xóa món ăn này khỏi thực đơn này??");
             if (conf == true) {
                 $.ajax({
@@ -78,34 +79,43 @@
                     type: 'POST',
                     success: function (res) {
                         if (res.status == true) {
-                            window.location.href = "/Admin/BookFood/Index?orderTB_id=id";
+                            window.location.href = "/Admin/BookFood/Index?orderTB_id=" + idname;
                         }
                         else {
-                            window.location.href = "/Admin/Slide/Index?orderTB_id=id";
+                            window.location.href = "/Admin/Slide/Index?orderTB_id=" + idname;
                         }
                     }
                 });
             }
         });
 
-        //Xóa món ăn trong thực đơn
-        $('.txtCountBook').off('click').on('click', function (e) {         
-            
-                $.ajax({
-                    data: { id: $(this).data('id'), count :$(this).data('count') },
-                    url: '/Admin/BookFood/EditCount',
-                    dataType: 'Json',
-                    type: 'POST',
-                    success: function (res) {
-                        if (res.status == true) {
-                            window.location.href = "/Admin/BookFood/Index?orderTB_id=id";
-                        }
-                        else {
-                            window.location.href = "/Admin/Slide/Index?orderTB_id=id";
-                        }
-                    }
+        //Sửa số lượng món ăn trong thực đơn
+        $('.btn-Edit-BookFood').off('click').on('click', function (e) {
+            var idname = $('.txtCountBook').data('fullname');
+            var count = $('.txtCountBook');
+            var list = [];
+            $.each(count, function(i,item){
+                list.push({
+                    id: $(this).data('id'),
+                    count: $(this).val()
                 });
-            
+            });
+           
+            $.ajax({
+                data: { edit: JSON.stringify(list) },
+                url: '/Admin/BookFood/Edit',
+                dataType: 'Json',
+                type: 'POST',
+                success: function (res) {
+                    if (res.status == true) {
+                        window.location.href = "/Admin/BookFood/Index?orderTB_id=" + idname;
+                    }
+                    else {
+                        window.location.href = "/Admin/BookFood/Index?orderTB_id=" + idname;
+                    }
+                }
+            });
+
         });
     }
 }

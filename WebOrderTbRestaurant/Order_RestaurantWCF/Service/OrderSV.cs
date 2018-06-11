@@ -45,7 +45,7 @@ namespace Order_RestaurantWCF.Service
 
         public IEnumerable<OrderTable> ListAll()
         {
-            return db.OrderTable.Where(x => x.CreatedDate < DateTime.Now).OrderByDescending(x => x.CreatedDate).ToList();
+            return db.OrderTable.Where(x => x.CreatedDate < DateTime.Now).OrderByDescending(x => x.CreatedDate <= DateTime.Now).ToList();
         }
 
         public OrderTable FindID(long id)

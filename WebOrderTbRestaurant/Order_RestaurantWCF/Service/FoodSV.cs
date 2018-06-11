@@ -96,13 +96,13 @@ namespace Order_RestaurantWCF.Service
 
         public List<Banner> ListSlideFood()
         {
-            return db.Banner.Where(x => x.Status == true).OrderByDescending(x => x.CreatedDate).Take(6).ToList();
+            return db.Banner.Where(x => x.Status == true).OrderByDescending(x => x.CreatedDate <= DateTime.Now).Take(6).ToList();
         }
 
         public IEnumerable<Food> PageListFood()
         {
             IQueryable<Food> food = db.Food;
-            return food.OrderBy(x => x.CreatedDate < DateTime.Now).ToList();
+            return food.OrderByDescending(x => x.CreatedDate <= DateTime.Now).ToList();
         }
 
         public bool EditFood(Food entity)

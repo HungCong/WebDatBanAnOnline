@@ -52,13 +52,13 @@
                                 {
                                     if (item.Food_ID == food.ID)
                                     {
-                                        <td>@food.Name</td>
+                                        <td >@food.Name</td>
                                         break;
                                     }
                                 }
                                                        
-                                <td><input type="number" class="txtCountBook" style="width: 50px;" value="@item.Count" data-id="@item.ID" data-count="@item.Count"/></td>
-                                <td>@item.Price.Value.ToString("N0")</td>
+                                <td><input type="number" class="txtCountBook" style="width: 50px;" value="@item.Count" data-id="@item.ID"  data-fullname="@item.OrderTable_ID"/></td>
+                                <td>@item.Price.Value.ToString("N0") đ/món</td>
                                 @foreach (var or in fullname)
                                 {
                                     if (item.OrderTable_ID == or.ID)
@@ -70,7 +70,7 @@
                                                                                           
                                 <td>
                                     <div class="dropdown">
-                                        <button class="btn glyphicon glyphicon-edit btn-primary btn-Edit-BookFood" title="Sửa số lượng món ăn"></button>
+                                        <button class="btn glyphicon glyphicon-edit btn-primary btn-Edit-BookFood" title="Sửa số lượng món ăn" ></button>
                                         <button type="button" class="btn glyphicon glyphicon-remove btn-danger btn-Del-BookFood" title="Xóa món ăn" data-id="@item.ID"></button>
                                     </div>
                                 </td>
