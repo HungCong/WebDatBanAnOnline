@@ -13,6 +13,14 @@ namespace WebOrderTbRestaurant
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Rewrite URL tìm kiếm món ăn
+            routes.MapRoute(
+                name: "search food",
+                url: "tim-kiem",
+                defaults: new { controller = "Home", action = "Search", id = UrlParameter.Optional },
+                namespaces: new string[] { "WebOrderTbRestaurant.Controllers" }
+            );
+
 
             //Rewrite URL đặt bàn có chọn menu
             routes.MapRoute(

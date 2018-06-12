@@ -143,5 +143,18 @@ namespace Order_RestaurantWCF.Service
         {
             return db.Food.SingleOrDefault(x => x.ID == food_id);
         }
+
+        public List<string> searchFood(string nameFood)
+        {
+            return db.Food.Where(x => x.Name.Contains(nameFood)).Select(x => x.Name).ToList();
+        }
+
+        public List<Food> Search(string namefood)
+        {
+            var result = (from food in db.Food
+                          where food.Name.Contains(namefood)
+                          select food).ToList();
+            return result;
+        }
     }
 }

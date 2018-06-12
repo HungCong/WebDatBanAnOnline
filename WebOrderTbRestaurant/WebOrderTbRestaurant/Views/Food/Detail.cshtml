@@ -44,14 +44,14 @@
 
                         <div class="price-order">
                             <span class="pull-left price">@food.Price.Value.ToString("N0") ₫</span>
-                            <span class="pull-right dat-mon"><a href="" title=""><i class="fa fa-shopping-cart"></i>&nbsp;Đặt món</a></span>
+                            <span class="pull-right dat-mon"><a href="/my-menu?foodId=@food.ID&quantity=1" title=""><i class="fa fa-shopping-cart"></i>&nbsp;Đặt món</a></span>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 detail-right" style="float:left">
                     <p class="name-products">@food.Name</p>
                     <div class="des-product">
-                        <p>@food.Description</p>
+                        <p>@Html.Raw(food.Description)</p>
 
                     </div>
                     @*<div class="thanhphan">

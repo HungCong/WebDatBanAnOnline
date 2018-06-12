@@ -33,6 +33,35 @@ namespace WebOrderTbRestaurant.Controllers
             return View(model);
         }
 
+        //Tìm kiếm món ăn
+        public ActionResult Search(string keyword)
+        {           
+            string[] key = keyword.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+            var food = new List<Food.Food>();
+            foreach(var item in key)
+            {
+                var list = new FoodSVClient().Search(item);
+                foreach(var li in list)
+                {
+                    food.Add(li);
+                }
+            }
+            ViewBag.KeyWord = keyword;
+            ViewBag.ListFood = food;
+            return View();
+        }
+
+        //Thuộc tính autocomplete
+        public JsonResult ListName(string q)
+        {
+            var data = new FoodSVClient().searchFood(q);
+            return Json(new
+            {
+                data = data,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+
         //lấy giá trị ngày đặt bàn, giờ đặt bàn, số lượng khách
         public JsonResult BookCustomer(string Cus_book)
         {         

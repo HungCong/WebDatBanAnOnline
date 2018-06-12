@@ -5,6 +5,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Order_RestaurantWCF.Model" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IFoodSV_ListAll_InputMessage">
@@ -61,6 +62,18 @@
   <wsdl:message name="IFoodSV_Find_FoodName_OutputMessage">
     <wsdl:part name="parameters" element="tns:Find_FoodNameResponse" />
   </wsdl:message>
+  <wsdl:message name="IFoodSV_searchFood_InputMessage">
+    <wsdl:part name="parameters" element="tns:searchFood" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_searchFood_OutputMessage">
+    <wsdl:part name="parameters" element="tns:searchFoodResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="IFoodSV_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFoodSV">
     <wsdl:operation name="ListAll">
       <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/ListAll" message="tns:IFoodSV_ListAll_InputMessage" />
@@ -97,6 +110,14 @@
     <wsdl:operation name="Find_FoodName">
       <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/Find_FoodName" message="tns:IFoodSV_Find_FoodName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/Find_FoodNameResponse" message="tns:IFoodSV_Find_FoodName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="searchFood">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/searchFood" message="tns:IFoodSV_searchFood_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/searchFoodResponse" message="tns:IFoodSV_searchFood_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFoodSV/Search" message="tns:IFoodSV_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFoodSV/SearchResponse" message="tns:IFoodSV_Search_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFoodSV" type="tns:IFoodSV">
@@ -175,6 +196,24 @@
     </wsdl:operation>
     <wsdl:operation name="Find_FoodName">
       <soap:operation soapAction="http://tempuri.org/IFoodSV/Find_FoodName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="searchFood">
+      <soap:operation soapAction="http://tempuri.org/IFoodSV/searchFood" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/IFoodSV/Search" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

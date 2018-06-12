@@ -448,6 +448,18 @@ namespace WebOrderTbRestaurant.Food {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/Find_FoodName", ReplyAction="http://tempuri.org/IFoodSV/Find_FoodNameResponse")]
         System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food> Find_FoodNameAsync(long food_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/searchFood", ReplyAction="http://tempuri.org/IFoodSV/searchFoodResponse")]
+        string[] searchFood(string nameFood);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/searchFood", ReplyAction="http://tempuri.org/IFoodSV/searchFoodResponse")]
+        System.Threading.Tasks.Task<string[]> searchFoodAsync(string nameFood);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/Search", ReplyAction="http://tempuri.org/IFoodSV/SearchResponse")]
+        WebOrderTbRestaurant.Food.Food[] Search(string namefood);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFoodSV/Search", ReplyAction="http://tempuri.org/IFoodSV/SearchResponse")]
+        System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food[]> SearchAsync(string namefood);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -547,6 +559,22 @@ namespace WebOrderTbRestaurant.Food {
         
         public System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food> Find_FoodNameAsync(long food_id) {
             return base.Channel.Find_FoodNameAsync(food_id);
+        }
+        
+        public string[] searchFood(string nameFood) {
+            return base.Channel.searchFood(nameFood);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> searchFoodAsync(string nameFood) {
+            return base.Channel.searchFoodAsync(nameFood);
+        }
+        
+        public WebOrderTbRestaurant.Food.Food[] Search(string namefood) {
+            return base.Channel.Search(namefood);
+        }
+        
+        public System.Threading.Tasks.Task<WebOrderTbRestaurant.Food.Food[]> SearchAsync(string namefood) {
+            return base.Channel.SearchAsync(namefood);
         }
     }
 }

@@ -96,7 +96,10 @@ namespace WebOrderTbRestaurant.Areas.Admin.Controllers
         {
             var model = new OrderTB.OrderSVClient().FindID(id);
             long selectID = new long();
-            model.TimeBook = model.TimeBook.Trim();
+            if(model.TimeBook != null)
+            {
+                model.TimeBook = model.TimeBook.Trim();
+            }         
             foreach (var item in GetAllTime())
             {               
                 if(item.time == model.TimeBook)

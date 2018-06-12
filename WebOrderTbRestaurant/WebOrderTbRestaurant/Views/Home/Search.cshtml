@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var key = ViewBag.KeyWord;
+    var listfood = (List<WebOrderTbRestaurant.Food.Food>)ViewBag.ListFood;
+}
+
+<div class="breadcumb-area" style="background-image: url(../../Assets/Client/img/bg-img/breadcumb.jpg)">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <div class="bradcumb-title text-center">
+                    <h2>Tìm kiếm món ăn</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="breadcumb-nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i>Kết quả tìm kiếm với từ khóa: </a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@key</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ****** Breadcumb Area End ****** -->
+<!-- ****** Archive Area Start ****** -->
+<section class="archive-area section_padding_80">
+    <div class="container">
+        <div class="row">
+            @foreach (var item in listfood)
+            {
+
+                item.MetaTitle = item.MetaTitle.Replace(" ", "");
+                var url = "/thuc-don/" + item.MetaTitle + "-" + item.ID;
+                <!-- Single Post -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
+
+                        <!-- Post Thumb -->
+                        <div class="post-thumb" style="margin-bottom:-15px;">
+                            <a href="@url">
+                                <img src="@item.Image" alt="" style="height:300px;
+                                                                     width:450px;">
+                            </a>
+
+                        </div>
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <div class="post-meta d-flex">
+                                <div class="post-author-date-area d-flex">
+                                    <!-- Post Author -->
+                                    <div class="post-author">
+                                        <a href="/my-menu?foodId=@item.ID&quantity=1"><i class="fa fa-shopping-cart" aria-hidden="true" title="Thêm vào bàn của bạn"></i></a>
+                                    </div>
+                                    <!-- Post Date -->
+                                    <div class="post-date">
+                                        <a href="#">@item.CreatedDate.Value.ToString("dd/MM/yyyy")  </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="@url">
+                                <h4 class="post-headline">@item.Name</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+

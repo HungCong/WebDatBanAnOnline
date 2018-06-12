@@ -1255,6 +1255,8 @@
     <Content Include="Assets\Admin\js\ckfinder\_samples\sample.css" />
     <Content Include="Assets\Admin\js\ckfinder\_samples\standalone.html" />
     <Content Include="Assets\Admin\js\ckfinder\_samples\standalone_v1.html" />
+    <Content Include="Assets\Admin\js\jquery-typeahead-2.10.4\jquery.typeahead.css" />
+    <Content Include="Assets\Admin\js\jquery-typeahead-2.10.4\jquery.typeahead.js" />
     <Content Include="Assets\Admin\js\sb-admin-2.js" />
     <Content Include="Assets\Admin\js\ToolEdit.js" />
     <Content Include="Assets\Admin\vendor\bootstrap-social\bootstrap-social.css" />
@@ -1457,6 +1459,7 @@
     <Content Include="Assets\Client\js\Menu.js" />
     <Content Include="Assets\Client\js\Order.js" />
     <Content Include="Assets\Client\js\others\plugins.js" />
+    <Content Include="Assets\Client\js\Search.js" />
     <Content Include="CKFinderScripts\CHANGELOG.html" />
     <Content Include="CKFinderScripts\ckfinder.html" />
     <Content Include="CKFinderScripts\ckfinder.js" />
@@ -1959,6 +1962,10 @@
     </Content>
     <Content Include="Areas\Admin\Views\BookFood\Index.cshtml" />
     <Content Include="Areas\Admin\Views\BookFood\ListAll.cshtml" />
+    <Content Include="Assets\Admin\js\jquery-typeahead-2.10.4\jquery.typeahead.scss" />
+    <None Include="Service References\Food\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\Slide\Order_RestaurantWCF.Model.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -1972,6 +1979,7 @@
     <Content Include="Service References\Slide\WebOrderTbRestaurant.Slide.Banner.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Views\Home\Search.cshtml" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />

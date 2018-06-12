@@ -47,5 +47,13 @@ namespace Order_RestaurantWCF.Service
         //give food name in food table
         [OperationContract]
         Food Find_FoodName(long food_id);
+
+        //search food (for jquery)
+        [OperationContract]
+        List<string> searchFood(string nameFood);
+
+        //search food
+        [OperationContract]
+        List<Food> Search(string namefood);
     }
 }
